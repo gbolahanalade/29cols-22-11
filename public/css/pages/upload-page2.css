@@ -1,0 +1,100 @@
+/*Registration and Login Page v2
+------------------------------------*/
+body { 
+	background: #555;
+}
+
+.upld-block {
+	width: 580px;
+	padding: 20px;
+	margin: 60px auto;
+	background: #fff;
+	border-top: solid 2px #72c02c;
+}
+
+.upld-block-header h2, h6 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#artwork-upld{
+	display: block;
+	position: relative;
+	width: 100px;
+	height: 121px;
+	float: left;
+}
+
+.
+
+
+
+.row .col .artwork {
+	display: block;
+	text-indent: -9999px;
+	margin: 0 10px 5px 0;
+	background-color: #f8f8f8;
+	background-image: url("img/user.jpg");
+	background-repeat: no-repeat;
+	background-position: -260px -422px;
+	width: 100px;
+	height: 100px
+}
+
+#artwork-upldbtn {
+	width: 100px;
+	margin: 0;
+}
+
+#upld-section .upld-comp a{
+	min-width: 270px;
+}
+
+#upld-section .upld {
+	
+}
+
+.upld-block-header h2{
+	margin-bottom: 5px;
+}
+
+.upld-section-seprtr h2:before,
+.upld-section-seprtr h2:after {
+	border-bottom-style: solid;
+    border-top-style: solid;
+    height: 6px;
+    top: 15px;
+}
+
+.upld-details .row{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.row .upld-imgbdrght {
+	border-right: solid 1px #eee ;
+}
+
+.input-group .form-control{
+	width: 50%;
+}
+
+.upld-imgbdrght label{
+	padding-left: 15px;
+}
+
+.upld-tagcol textarea{
+	resize: none;
+	scroll: ;
+}
+
+.input-width {
+	width: 70%;
+}
+/*For Mobile Devices*/
+@media (max-width: 500px) { 
+	.reg-block {
+		width: 300px;
+		margin: 60px auto;
+	}
+}

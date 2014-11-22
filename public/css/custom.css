@@ -1,0 +1,193 @@
+/* Add here all your css styles (customizations) */
+
+
+/* 
+    GENERAL
+*/
+
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+}
+
+body #homepage, .wrapper {
+	background-color: # !important;
+}
+
+.container {
+	padding-right:60px;
+	padding-left: 60px;
+}
+
+.container {
+	padding-right:60px;
+	padding-left: 60px;
+}
+
+.post-item{
+	width: 100%;
+float: left;
+clear: both;
+position: relative;
+border-bottom: 1px dotted #999;
+padding: 9px 0 9px 0;
+list-style: none;
+}
+
+
+.post-thumbnail {
+	width: 78px;
+	height: 78px;
+}
+
+.post-info {
+	vertical-align: ;
+	display: block;
+}
+
+.post-thread {
+	padding-left: 10px;
+}
+
+.post-desc {
+	white-space: nowrap;
+text-overflow: ellipsis;
+color: #adacac;
+font-size: 11px;
+overflow: hidden;
+display: block;
+line-height: 12px;
+}
+
+.post-title {
+	color: #E74C3C;
+	font-size: 20px;
+}
+
+.post-uploader {
+	font-size: 15px;
+	margin-top: -5px;
+	margin-bottom: 2px;
+}
+
+.post-util {
+	font-size: 11px;
+	line-height: 1.6;
+	color: #EAEAEA;
+}
+
+.post-util li{
+	color: #ADADAD;
+}
+
+.post-thread a{
+	text-decoration: none;
+}
+
+.block-disp {
+	display: block;
+}
+
+.vert-mid {
+ vertical-align: middle;
+ }
+
+.play-icon {
+	vertical-align: middle;
+	padding-bottom: 20px;
+}
+
+.post-util .icon-3x  {
+	color: red;
+}
+
+.mright10 {
+	margin-right: 10px;
+}
+
+.mleft10 {
+	margin-left: 10px;
+}
+
+.mbottom10 {
+	margin-bottom: 10px;
+}
+
+.mtop10 {
+	margin-top: 10px;
+}
+
+
+/* 
+    SOCIALS
+*/
+
+.fb-icon i, .twitter-icon i, .sc-icon i, .yt-icon i{
+    color: #fff !important;
+    font-size: 16px;
+    height: 30px !important;
+    padding: 8px;
+    text-align: center;
+    width: 30px !important;
+	border-radius: 3px !important;
+}
+
+.fb-icon i {
+	background: none repeat scroll 0 0 #3071A9;
+}
+
+.twitter-icon i {
+	 background: none repeat scroll 0 0 #5EA9DD;
+}
+
+.sc-icon i {
+	background: none repeat scroll 0 0 #FF7F00; 
+	padding-right: 2px; 
+}
+
+.yt-icon i{
+	background: none repeat scroll 0 0 #E22D26; 
+}
+
+.socials li {
+	padding-right: 0;
+}
+
+.btn-twitter {
+    background-color: transparent;
+    border-color: #46c0fb;
+    color: #46c0fb;
+}
+
+.btn-twitter-inversed {
+    background-color: #46c0fb;
+    border-color: #46c0fb;
+    color: white;
+}
+
+.btn-facebook {
+    background-color: transparent;
+    border-color: #4863ae;
+    color: #4863ae;
+}
+
+.btn-facebook-inversed {
+    background-color: #4863ae;
+    border-color: #4863ae;
+    color: white;
+}
+
+.btn-youtube-inversed {
+    background-color: #ff0000;
+    border-color: #ff0000;
+    color: white;
+}
+
+/* 
+    UTILITIES
+*/
+
+.red {
+    color: #e74c3c;
+}
