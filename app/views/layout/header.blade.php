@@ -77,7 +77,7 @@
                             @if(Auth::check())
                                     <li class="dropdown">
                                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                                            {{HTML::image(isset(Auth::user()->profilePhoto->image) ? Auth::user()->profilePhoto->image : 'img/user.jpg', 'Profile thumbnail', array('width'=>'28px', 'height'=>'28px'))}}
+                                            {{HTML::image(isset(Auth::user()->profilePhoto->image) ? Auth::user()->profilePhoto->image : 'img/user.jpg', 'Profile thumbnail', array('width'=>'38px', 'height'=>'38px'))}}
                                             <span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu">

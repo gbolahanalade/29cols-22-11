@@ -61,10 +61,10 @@
                                 {{HTML::image(isset($user->profilePhoto->image) ? $user->profilePhoto->image : 'img/user.jpg', 'Profile Image', array('class'=>'img-responsive md-margin-bottom-10'))}}
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-6 btn-socials profile-util padding-left0">
-                                <a class="btn btn-facebook btn-block btn-sm" href="{{$user->facebook_url}}"><i class="fa fa-facebook fa-xs"></i> | Facebook</a>
-                                <a class="btn btn-twitter btn-block btn-sm" href="{{$user->twitter_url}}"><i class="fa fa-twitter fa-xs"></i> | Twitter</a>
-                                <a class="btn btn-soundcloud btn-block btn-sm" href="{{$user->soundcloud_url}}"><i class="fa fa-soundcloud fa-xs"></i> | Soundcloud</a>
-                                <a class="btn btn-youtube btn-block btn-sm" href="{{$user->youtube_url}}"><i class="fa fa-youtube fa-xs"></i> | Youtube</a>
+                                <a class="btn btn-facebook btn-block btn-sm" href="{{$user->facebook}}" target="_blank"><i class="fa fa-facebook fa-xs"></i> | Facebook</a>
+                                <a class="btn btn-twitter btn-block btn-sm" href="{{$user->twitter}}" target="_blank"><i class="fa fa-twitter fa-xs"></i> | Twitter</a>
+                                <a class="btn btn-soundcloud btn-block btn-sm" href="{{$user->soundcloud}}" target="_blank"><i class="fa fa-soundcloud fa-xs"></i> | Soundcloud</a>
+                                <a class="btn btn-youtube btn-block btn-sm" href="{{$user->youtube}}" target="_blank"><i class="fa fa-youtube fa-xs"></i> | Youtube</a>
                                 </div>
                                 </div>
                             </div>

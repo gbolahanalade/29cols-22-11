@@ -28,11 +28,10 @@
 
     @section('search')
         <div class="breadcrumbs container">
-            <div class="row" style="padding: 0 15px;">
-            <div class="col-md-8 col-sm-8 col-xs-8 padding-left0">
-                <a href="{{ action('HomeController@index')}}"><h2 class="pull-left padding5000 margin0"><i class="fa fa-home"></i></a> |
-                <a href="{{ action('TalentController@index')}}"><span>Talents</span></a> <i class="fa fa-users"></i> | 
-                <span class="" style="text-transform:capitalize;">{{$user-> username }}</span></h2>
+            <div class="row" style="padding: 0 10px;">
+            <div class="col-md-8 col-sm-8 col-xs-12 padding-left0">
+                <a href="{{ action('HomeController@index')}}"><h2 class="padding5000 margin0" style="text-align:left !important;"><i class="fa fa-home"></i></a> | 
+                <span class="" style="text-transform:capitalize;">Welcome {{$user-> username }}</span></h2>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-8-offset search-bar">
                 {{Form::open(['url'=> '/search/song', 'method'=>'get', 'class'=>'navbar-form pull-right', 'role'=>'search'])}}            
@@ -62,12 +61,12 @@
                                 <div class="col-md-3 col-sm-3 col-xs-5 profile-pic" style="padding-left:10px;">
                                 {{HTML::image(isset($user->profilePhoto->image) ? $user->profilePhoto->image : 'img/user.jpg', 'Profile Image', array('class'=>'img-responsive md-margin-bottom-10'))}}
                                 </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6 btn-socials profile-util padding-left0">
+                                <div class="col-md-6 col-sm-6 col-xs-5 btn-socials profile-util padding-left0">
                                 <a class="btn btn-primary btn-block btn-sm" href="{{action('ProfileController@getPhoto')}}"><i class="fa fa-user fa-xs"></i> | Change Picture</a>
                                 <a class="btn btn-primary btn-block btn-sm" href="{{action('ProfileController@edit', $user->id)}}"><i class="fa fa-cog fa-xs"></i> | Edit Profile</a>
                                 <a href="{{action('SongController@getNew')}}" class="upload btn btn-soundcloud btn-block btn-sm"><i class="fa fa-music fa-xs"></i> | Add Songs</a>
-                                <a href="{{action('SongController@getNew')}}" class="upload btn btn-youtube btn-block btn-sm"><i class="fa fa-video-camera fa-xs"></i> | Add Videos</a>
-                                <a href="{{action('SongController@getNew')}}" class="upload btn btn-facebook btn-block btn-sm"><i class="fa fa-camera fa-xs"></i> | Add Pictures</a>
+                                <a href="{{action('VideoController@getNew')}}" class="upload btn btn-youtube btn-block btn-sm"><i class="fa fa-video-camera fa-xs"></i> | Add Videos</a>
+                                <a href="{{action('GalleryController@getNew')}}" class="upload btn btn-facebook btn-block btn-sm"><i class="fa fa-camera fa-xs"></i> | Add Pictures</a>
                                 </div>
                                 </div>
                             </div>
@@ -77,10 +76,10 @@
                                         <h5>Real Name: <span class="uploader">{{ $user->full_name }}</span></h5>
                                         <h5>Talent: <span class="talents">{{$user->talents}}</span></h5>
                                         <div>
-                                        <a class="btn btn-facebook btn-sm" href="{{$user->facebook_url}}"><i class="fa fa-facebook fa-xs"></i></a>
-                                        <a class="btn btn-twitter btn-sm" href="{{$user->twitter_url}}"><i class="fa fa-twitter fa-xs"></i></a>
-                                        <a class="btn btn-soundcloud btn-sm" href="{{$user->soundcloud_url}}"><i class="fa fa-soundcloud fa-xs"></i></a>
-                                        <a class="btn btn-youtube btn-sm" href="{{$user->youtube_url}}"><i class="fa fa-youtube fa-xs"></i></a>
+                                        <a class="btn btn-facebook btn-sm" href="{{$user->facebook}}" target="_blank"><i class="fa fa-facebook fa-xs"></i></a>
+                                        <a class="btn btn-twitter btn-sm" href="{{$user->twitter}}" target="_blank"><i class="fa fa-twitter fa-xs"></i></a>
+                                        <a class="btn btn-soundcloud btn-sm" href="{{$user->soundcloud}}" target="_blank"><i class="fa fa-soundcloud fa-xs"></i></a>
+                                        <a class="btn btn-youtube btn-sm" href="{{$user->youtube}}" target="_blank"><i class="fa fa-youtube fa-xs"></i></a>
                                         </div>
                                         <hr class="hr5"> 
                                         <span class="description">{{$user->tagline}}</span>   
@@ -93,7 +92,7 @@
                             <div>
 
                             <!-- TAB NAV -->
-                            <ul class="nav nav-tabs nav-justified list-inline" role="tablist">
+                            <ul class="nav nav-tabs nav-left list-inline mpadding05" role="tablist">
                                 <li class="active">
                                     <a href="#songs" role="tab" data-toggle="tab">
                                     <span class="badge">{{$s_count}}</span> Songs <i class="fa fa-music"></i>
@@ -138,11 +137,14 @@
                                                     <li class="pull-left col-md-10 col-xs-8">
                                                         <h3>{{ HTML::linkAction('SongController@showSong', $song->title, array($song->id), array('class'=>'post-title'))}}</h3>
                                                         <p class="post-desc hidden-xs">{{ $song->description}}</p>
-                                                        <div class="btn-group list-unstyled">
+                                                        <div class="btn-group list-unstyled margin5000">
                                                             <a href="{{action('SongController@delete', $song->id) }}" 
                                                             class="upload btn btn-youtube rounded btn-xs btn-block" type="button">
                                                             Delete <i class="fa fa-times centered"></i></a>
                                                         </div>
+                                                        <!-- <div id="message" title="Delete Confirmation">
+                                                            <h3> Do you want to delete this video ? </h3>
+                                                        </div> -->
                                                     </li>
                                                 </ul>
                                             </li>
@@ -180,10 +182,8 @@
 
                                 <!-- VIDEOS Tab Start -->
 
-                                <div id="videos" class="tab-pane fade in padding5000">
-
-                
-
+                                <div id="videos" class="tab-pane fade in padding5000">                
+                                    <div class="row margin0">
                                     @if ($videos->isEmpty())
 
                                       <p class="alert alert-info text-center" role="alert"> This user has not added any Video!
@@ -200,7 +200,7 @@
 
                                     @foreach ($videos as $video)
 
-                                    <div class="post-thumb col-lg-3 col-md-3 col-sm-4 col-xs-6 padding05">
+                                    <div class="post-thumb col-lg-3 col-md-3 col-sm-3 col-xs-4 padding05">
                                     <!-- video -->
                                     <div class="box img-responsive thumbnails" style="background: url({{$video->image}}) no-repeat 0 0; background-size: 100% 100%;" width="auto" heigth="100px">
                                         <a href="{{ action('VideoController@showVideo', $video->id)}}">
@@ -213,7 +213,7 @@
                                             <p class="post-desc">
                                                 <em>{{$video->timeago}}</em>
                                             </p>
-                                            <div class="btn-group list-unstyled">
+                                            <div class="btn-group list-unstyled margin5000">
                                                 <a href="{{action('VideoController@delete', $video->id) }}" 
                                                             class="upload btn btn-youtube rounded btn-xs btn-block" type="button">
                                                             Delete <i class="fa fa-times centered"></i></a>
@@ -222,6 +222,7 @@
                                     </div>    
                                     @endforeach
                                     @endif
+                                    </div> <!-- row ends -->
                                     <!-- Pager -->
                                     <nav class="">
 
@@ -253,9 +254,9 @@
 
                             @foreach ($galleries as $gallery)
 
-                            <div class="post-thumb col-lg-3 col-md-3 col-sm-4 col-xs-6 padding05">
+                            <div class="post-thumb col-lg-3 col-md-3 col-sm-3 col-xs-4 padding05">
 
-                            <div class="box thumbnails img-responsive" style="background:url({{$gallery->image}}) no-repeat 50% 50%">
+                            <div class="box thumbnails img-responsive" style="background:url({{$gallery->image}}) no-repeat 0 0; background-size: 100% 100%;" width="auto" heigth="100px">
 
                                 <a href="{{action('GalleryController@showGallery', array($gallery->id))}}">
 
@@ -263,7 +264,7 @@
 
                                 <span class="search">
 
-                                <i class="fa fa-search fa-3x"></i></span></div></a>
+                                <i class="fa fa-search-plus fa-3x"></i></span></div></a>
 
                             </div>   
 
@@ -271,7 +272,7 @@
                                     <!-- caption -->
                                     <h5>{{ HTML::linkAction('GalleryController@showGallery', $gallery->caption, array($gallery->id), array('class'=>'post-title'))}}</h5>
                                     <p class="post-desc"><em>{{$gallery->timeago}}</em></p>
-                                    <div class="btn-group list-unstyled">
+                                    <div class="btn-group list-unstyled margin5000">
                                         <a href="{{action('GalleryController@delete', $gallery->id) }}" 
                                                             class="upload btn btn-youtube rounded btn-xs btn-block" type="button">
                                                             Delete <i class="fa fa-times centered"></i></a>
@@ -343,12 +344,12 @@
                                 <div id="rmusic" class="tab-pane active fade in">
                                     @foreach ($recentSongs as $song)
                                     <ul class="list-inline post-item">
-                                        <li class="col-md-8 col-sm-8 col-xs-12">
+                                        <li class="col-md-8 col-sm-8 col-xs-8">
                                             <ul class="list-inline">
-                                            <li class="col-md-3 pull-left">
+                                            <li class="col-md-3 col-xs-4 pull-left">
                                               {{ HTML::image($song->image, $song->title, array('class'=>'img-responsive thumbnail','width'=>'50px','height'=>'50px')) }}                                       
                                             </li>
-                                            <li class="col-md-9 pull-left post-desc">                                    
+                                            <li class="col-md-9 col-xs-8 pull-left post-desc">                                    
                                                 <h5>{{ HTML::linkAction('SongController@showSong', $song->title, array($song->id), array('class'=>'post-title'))}}</h5>
                                                 <h5><i class="fa fa-user fa-fw"></i>
                                                 {{ HTML::linkAction('ProfileController@show', $song->user->username, array('id'=>$song->user->id), array('class'=>'post-uploader'))}}</h5>
@@ -356,7 +357,7 @@
                                             </li>
                                             </ul>
                                         </li>
-                                        <li class="col-md-4 col-sm-4 col-xs-12 post-util">
+                                        <li class="col-md-4 col-sm-4 col-xs-4 post-util">
                                             <ul class="list-inline">
                                                 <li class="col-md-4 play-icon text-right">
                                                     {{ HTML::linkAction('SongController@showSong', '', array($song->id), array('class'=>'fa fa-play-circle fa-3x'))}}
@@ -373,12 +374,12 @@
                                 <div id="rvideos" class="tab-pane fade in">
                                     @foreach ($recentVideos as $video)
                                     <ul class="list-inline post-item">
-                                        <li class="col-md-8 col-sm-8 col-xs-12">
+                                        <li class="col-md-8 col-sm-8 col-xs-8">
                                             <ul class="list-inline">
-                                            <li class="col-md-3 pull-left">
+                                            <li class="col-md-3 col-xs-4 pull-left">
                                               {{ HTML::image($video->image, $video->title, array('class'=>'img-responsive thumbnail','width'=>'50px','height'=>'50px')) }}                                       
                                             </li>
-                                            <li class="col-md-9 pull-left post-desc">                                    
+                                            <li class="col-md-9 col-xs-8 pull-left post-desc">                                    
                                                 <h5>{{ HTML::linkAction('VideoController@showVideo', $video->title, array($video->id), array('class'=>'post-title'))}}</h5>
                                                 <h5><i class="fa fa-user fa-fw"></i>
                                                 {{ HTML::linkAction('ProfileController@show', $video->user->username, array('id'=>$video->user->id), array('class'=>'post-uploader'))}}</h5>
@@ -386,7 +387,7 @@
                                             </li>
                                             </ul>
                                         </li>
-                                        <li class="col-md-4 col-sm-4 col-xs-12 post-util">
+                                        <li class="col-md-4 col-sm-4 col-xs-4 post-util">
                                             <ul class="list-inline">
                                                 <li class="col-md-4 play-icon text-right">
                                                     {{ HTML::linkAction('VideoController@showVideo', '', array($video->id), array('class'=>'fa fa-play-circle fa-3x'))}}
@@ -403,12 +404,12 @@
                                 <div id="rpictures" class="tab-pane fade in">
                                     @foreach ($recentGalleries as $gallery)
                                     <ul class="list-inline post-item">
-                                        <li class="col-md-8 col-sm-8 col-xs-12">
+                                        <li class="col-md-8 col-sm-8 col-xs-8">
                                             <ul class="list-inline">
-                                            <li class="col-md-3 pull-left">
+                                            <li class="col-md-3 col-xs-4 pull-left">
                                               {{ HTML::image($gallery->image, $gallery->caption, array('class'=>'img-responsive thumbnail','width'=>'50px','height'=>'50px')) }}                                       
                                             </li>
-                                            <li class="col-md-9 pull-left post-desc">                                    
+                                            <li class="col-md-9 col-xs-8 pull-left post-desc">                                    
                                                 <h5>{{ HTML::linkAction('GalleryController@showGallery', $gallery->caption, array($gallery->id), array('class'=>'post-title'))}}</h5>
                                                 <h5><i class="fa fa-user fa-fw"></i>
                                                 {{ HTML::linkAction('ProfileController@show', $gallery->user->username, array('id'=>$gallery->user->id), array('class'=>'post-uploader'))}}</h5>
@@ -416,7 +417,7 @@
                                             </li>
                                             </ul>
                                         </li>
-                                        <li class="col-md-4 col-sm-4 col-xs-12 post-util">
+                                        <li class="col-md-4 col-sm-4 col-xs-4 post-util">
                                             <ul class="list-inline">
                                                 <li class="col-md-4 play-icon text-right">
                                                     {{ HTML::linkAction('GalleryController@showGallery', '', array($gallery->id), array('class'=>'fa fa-play-circle fa-3x'))}}
@@ -442,17 +443,9 @@
     <!-- jQuery Version 1.11.0 -->
 
     <script src="{{ asset('js/jquery-1.11.0.js') }}"></script>
-
-
-
     <!-- Bootstrap Core JavaScript -->
-
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-
-
-
     <!-- Script to Activate the Carousel -->
-
     <script>
 
     $('.carousel').carousel({
@@ -463,13 +456,4 @@
 
     </script>
 
-
-
-   @stop
-
-
-
-    
-
-    
-
+@stop

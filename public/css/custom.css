@@ -95,8 +95,8 @@
 	.navbar-inverse .navbar-toggle:focus,
 	.navbar-inverse .navbar-toggle .icon-bar:hover,
 	.navbar-inverse .navbar-toggle .icon-bar:focus {
-    	background-color: #3071A9;
-    	border-color: #285E8E;
+    	background-color: #DE1B1B;
+    	border-color: #CB1616;
     	color: #fff !important;
 	}
 
@@ -155,7 +155,6 @@
 		height: 15px;
 	} */
 
-
 	.search-bar .btn:hover {
 		color: #333;
 	}
@@ -164,7 +163,7 @@
 	.upload-page, 
 	.login-page, 
 	.register-page {
-		width: 300px;
+		width: 350px;
 		background-color: #fff;
 		font-size: 90% !important;
 		color: #333 !important;
@@ -174,6 +173,25 @@
 
 @media (max-width: 767px) {
 
+	 body {
+        margin-top: 75px !important;
+        width: 100% !important;
+    }
+
+    .logo img{
+        margin-bottom: -20px;
+        width: auto;
+        height: 30px;
+    }
+
+    .breadcrumbs button .btn {
+        font-size: 50%;
+    }
+
+
+    .fa-3x {
+    font-size: 2em !important;
+    }
 
 	.menu-button .btn-sm {
 		padding: 5px 4px;
@@ -190,8 +208,22 @@
 	.nav-tabs.nav-justified > li {
     	float: left !important;
 	}
+
+	.banner {
+		padding: 5px !important;
+	}
+
+	.mpadding05 {
+		padding: 0 5px !important;
+	}
+
+	.carousel .item img {
+		height: 250px !important;
+	}
 }
 
+
+/* Small devices (tablets, 768px and up) */
 @media (max-width: 460px) {
 	.menu-button .upload-btn .btn-sm {
 		padding: 5px !important;
@@ -200,4 +232,25 @@
 	.padding2-right0 {
     	padding-right: 0 !important;
 	}
+
+	.post-title,
+    .uploader {
+        font-size: 99%;
+    }
+
+    .username {
+    	font-size: 20px !important;
+    }
+
+    .breadcrumbs h2 {
+    	font-size: 16px !important;
+    }
+
+    .sidebar-ad {
+        min-height: 200px;
+    }
+
+    h2 {
+    	font-size: 18px !important;
+    }
 }

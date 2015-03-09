@@ -1,10 +1,15 @@
+/*
+Custom css overiding template css designs
+*/
+
+
 /* 
     GENERAL
 */
 
 body,
 html {
-    margin: 26px 0 0 0 !important;
+    margin: 26px 0 0 0;
     background:  none no-repeat 0 0 #fff !important;
 }
 
@@ -28,32 +33,6 @@ h3 {
     font-weight: normal;
 }
 
-
-@media(max-width: 767px) {
-    body {
-        margin-top: 75px !important;
-        width: 100% !important;
-    }
-
-    .logo img{
-        margin-bottom: -20px;
-        width: auto;
-        height: 30px;
-    }
-
-    .breadcrumbs, .breadcrumbs h2 {
-        font-size: 20px !important;
-    }
-
-    .breadcrumbs button .btn {
-        font-size: 50%;
-    }
-
-
-    .fa-3x {
-    font-size: 2em !important;
-    }
-}
 
 .fa-play-circle {
     color: #ff0000;
@@ -116,6 +95,10 @@ h3 {
     padding: 3px 0;
 }
 
+.padding010 {
+    padding: 0 10px !important;
+}
+
 .padding015 {
     padding: 0 15px !important;
 }
@@ -130,6 +113,14 @@ h3 {
 
 .margin0{
     margin: 0 !important;
+}
+
+.margin-left0 {
+    margin-left: 0 !important;
+}
+
+.margin-right0 {
+    margin-right: 0 !important;
 }
 
 .margin0050 {
@@ -156,8 +147,9 @@ li a .btn {
 
 
 .btn-red {
-    background-color: #de1b1b;
+    background-color: #DE1B1B;
     color: #fff !important;
+    border-color: #6e0610;
 }
 
 .btn-facebook,
@@ -383,7 +375,7 @@ opacity: 0.45;
 
 .main-menu {
   /*  border-top: solid 1px #D3490E; */
-    border-bottom: solid 2px #D3490E;
+    border-top: solid 2px #D3490E;
     margin: 0 auto;
     color: #555 !important;
 }
@@ -433,7 +425,7 @@ opacity: 0.45;
 .navbar-inverse .navbar-nav > .active > li > a:hover, 
 .navbar-inverse .navbar-nav > .active > a:focus {
     color: #fff !important;
-    background-color: #3071A9;
+    background-color: #DE1B1B;
 }
 
 .navbar-inverse .navbar-nav > li > a:focus, 
@@ -561,7 +553,7 @@ nav #adspace {
     border-left: 1px solid #555; */
     background-color: #de1b1b;
     color: #fff !important;
-    border-bottom: 1px solid #ff0000;
+    border: 1px solid #6e0610 !important;
 } 
 
 
@@ -978,7 +970,7 @@ white-space: nowrap;
 
 
 .btn-u:hover, .btn-u:focus, .btn-u:active, .btn-u.active, .open .dropdown-toggle.btn-u {
-    background: none repeat scroll 0% 0% #5FB611;
+    background: none repeat scroll 0% 0% #DE1B1B;
 }
 
 @media(max-width: 767px) {
@@ -1100,8 +1092,9 @@ white-space: nowrap;
 }
 
 .dropdown-menu li a:hover {
-    background-color: #3071A9;
+    background-color: #DE1B1B;
     color: #fff !important;
+    border-color: #6e0610;
 }
 @media(max-width: 767px) {
     .login ul li {
@@ -1166,7 +1159,7 @@ FOOTER
     width:400px;
     margin-top: 20px;
     margin-bottom: 20px;
-    padding: 30px;
+    padding: 10px;
     border: solid 1px #ddd;
     background-color: #fff; 
 }
@@ -1221,9 +1214,9 @@ FOOTER
   margin-top: 10px !important;
   margin-right: 0 !important;
   margin-bottom: 10px;
-  background-color: #3071A9;
+  background-color: #DE1B1B;
   background-image: none;
-  border: 1px solid transparent;
+  border: 1px solid #CB1616;
   border-radius: 4px;
 }
 
@@ -1231,19 +1224,6 @@ FOOTER
         padding: 5px 0px;
         min-height: 350px;
     }
-
-/* Small devices (tablets, 768px and up) */
-@media (max-width: 480px) { 
-    .post-title,
-    .uploader,
-    .username {
-        font-size: 80%;
-    }
-
-    .sidebar-ad {
-        min-height: 200px;
-    }
-}
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: @screen-md-min) { ... }
