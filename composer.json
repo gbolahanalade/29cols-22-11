@@ -8,7 +8,13 @@
 		"zizaco/confide": "~4.0@dev",
 		"artdarek/oauth-4-laravel": "dev-master",
 		"facebook/php-sdk": "~3.2",
-		"intervention/image": "dev-master"
+		"intervention/image": "dev-master",
+		"nicolaslopezj/searchable": "1.*",
+		"fbf/laravel-youtube": "dev-master",
+		"fbf/laravel-comments": "dev-master",
+		"cohensive/embed": "dev-master"
+		
+		
 	},
 	"autoload": {
 		"classmap": [
@@ -36,5 +42,5 @@
 	"config": {
 		"preferred-install": "dist"
 	},
-	"minimum-stability": "stable"
+	"minimum-stability": "dev"
 }

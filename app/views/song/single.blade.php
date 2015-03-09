@@ -1,548 +1,193 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
-    <title>Song Page</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-
-    <!-- CSS Page Style -->    
-    <link rel="stylesheet" href="{{ asset('css/pages/post-page.css') }}">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
-    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/landing-page.css') }}" rel="stylesheet">
-
-    <!-- Custom CSS Plugins -->
-    <link rel="stylesheet" href="{{ asset('plugins/line-icons/line-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('plugins/owl-carousel/owl.carousel.css') }}">
-    <link href="{{ asset('plugins/owl-carousel/owl.theme.css') }}" rel="stylesheet">
-
-    <!-- CSS Theme -->    
-    <link rel="stylesheet" href="{{ asset('css/themes/default.css') }}" id="style_color">
-
-    <!-- Custom Fonts -->
-    <link href="{{ asset('font-awesome-4.1.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <script type="text/javascript">var switchTo5x=true;</script>
-    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-    <script type="text/javascript">stLight.options({publisher: "462b8e41-098f-4d6e-af7f-52472fed576a", doNotHash: false, doNotCopy: false, hashAddressBar: true});</script>
-
-</head>
-
-<body id="page-top"  >
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <!-- HEADER 1-->    
-        <div class="container">
-            <div class="row">
-                <!-- HEADER 1 COLUMN 1 -->    
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <a class="headmargintop logo navbar-brand navbar1-brand" href="#">
-                    	<img class="img-responsive center-block" src="/img/logo.fw.png" alt="27 Colours"></a>
-                </div>
-                <!-- HEADER 1 COLUMN 2 -->    
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                        <a class="navbar-brand navbar1-brand" href="#">
-                        	<img class="img-responsive center-block" src="/img/AD-space.fw.png" alt="AD Space"></a>
-                </div>
-            </div>
-        </div>
-        <!-- HEADER 2 -->    
-        <div class="main-menu shadow-effect-1">
-          <div class="row container center-block">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-            <!-- HEADER 2 COLUMN 1 -->  
-            <div class="vert-mid col-lg-8 col-sm-8 col-xs-8">
-            <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+@extends('layout.master')
+@section('header')
+                <div class="collapse navbar-collapse " id="navbar-collapse-1">
                      <!-- MENU --> 
-                    <div class="">
+                    <div class="collapse navbar-collapse " id="navbar-collapse-1">
+                     <!-- MENU --> 
                         <ul class="nav navbar-nav navbar-left">
                             <li>
-                                <a href="{{action('BlogController@index')}}"><i class="fa fa-home fa-fw centered"></i> <span class="network-name"></span></a>
+                                <a href="{{ action('HomeController@index')}}" class="active">
+                                <i class="fa fa-home fa-fw centered"></i> Home</a>
                             </li>
-                            <li>
-                                <a href="{{action('SongController@index')}}">Songs</a>
-                            </li>
-                            <li>
-                                <a href="{{action('VideoController@index')}}">Videos</a>
-                            </li>
-                            <li>
-                                <a href="{{action('GalleryController@index')}}">Gallery</a>
-                            </li>
-                            <li>
-                                <a href="{{action('BlogController@index')}}">Blog</a>
-                            </li>
-                        </ul>
-                    </div>
-                     <!-- SOCIALS --> 
-                    <div class="socials">
-                        <ul class="socials list-inline">
-                                    <li>
-                                        <a href="" class=""><i class="fa fa-twitter fa-fw"></i> <span class="network-name"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="" class=""><i class="fa fa-facebook fa-fw"></i> <span class="network-name"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class=""><i class="fa fa-youtube fa-fw"></i> <span class="network-name"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class=""><i class="fa fa-soundcloud fa-fw"></i> <span class="network-name"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class=""><i class="fa fa-instagram fa-fw"></i> <span class="network-name"></span></a>
-                                    </li>
-                        </ul>
-                    </div>
+                            <li class="active"><a href="{{ action('SongController@index')}}">
+                            <i class="fa fa-music fa-fw centered"></i> Music</a></li>
+                            <li><a href="{{ action('VideoController@index')}}">
+                            <i class="fa fa-video-camera fa-fw centered"></i> Videos</a></li>
+                            <li><a href="{{ action('GalleryController@index')}}">
+                            <i class="fa fa-camera fa-fw centered"></i> Pictures</a></li>
+                            <li><a href="{{ action('TalentController@index')}}">
+                            <i class="fa fa-users fa-fw centered"></i> Talents</a></li>
+                        </ul>   
+                </div>
+                </div>
+                @stop
+
+    <!-- Breadcrumbs -->
+    @section('search')
+    <div class="breadcrumbs container">
+        <div class="row" style="padding-right: 15px; padding-left: 30px;">
+        <div class="col-md-4 col-sm-4 col-xs-6 padding-left0">
+            <a href="{{ action('HomeController@index')}}"><h2 class="pull-left padding5000 margin0"><i class="fa fa-home"></i></a> |
+            <a href="{{ action('SongController@index')}}"><span>Music</span></a> <i class="fa fa-music"></i></h2>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-8-offset search-bar">
+            {{Form::open(['url'=> '/search/song', 'method'=>'get', 'class'=>'navbar-form pull-right', 'role'=>'search'])}}            
+            <div class="input-group">
+                {{Form::text('s-term',Input::old('username'), array('class'=>'form-control input-sm', 'placeholder'=>'') )}}
+                <div class="input-group-btn">
+                    {{Form::submit('search', array('class'=>'btn btn-default btn-sm'))}}<i class="fa fa-search">
+                    </i>
                 </div>
             </div>
-            <!-- HEADER 2 COLUMN 2 -->    
-            <div class="col-sm-4 col-xs-4">
-                     <!-- MENU --> 
-                        <ul class="list-inline socials">
-                            <li><a class="upload btn btn-default btn-file" href="#">
-                                <span class="hidden-xs hidden-sm">Upload</span>
-                                <input type="file" />
-                                <i class="fa fa-upload fa-fw centered"></i></a>
-                            </li>
-                            <li>
-                                <ul class="list-unstyled">
-                                @if(Auth::check())
-                                    <li>{{ HTML::linkRoute('logout', 'logout' )}} </li>
-
-                                @else
-                                <li>{{ HTML::linkRoute('register', 'Registration' )}}| {{ HTML::linkRoute('login', 'Sign In' )}}</li>
-                                @endif
-                                
-                                </ul>
-                            </li>
-                        </ul>
-            </div>
-            
-          </div>
+           {{Form::close()}}
         </div>
-    </nav>
-  <div class="wrapper">
-    <!-- Header -->
-    <!-- /.intro-header -->
-    <header id="pp-header">
-        <div class="container  page-intro">
-            <h2>Discover music <i class="fa fa-music fa-fw"></i> from new talents</h2>
-        </div>
-    </header>
+        </div> <!-- row ends -->
+    </div> <!-- container ends -->
+    @stop
 
-    <section id="post-page">
-        <!-- CONTENT -->
-        <div class="container">
-            <div class="row blog-item">
+@section('content')              
                 <!-- MAIN CONTENT COL-8 -->
-                <section id="main-content" class="jumbotron col-lg-8">
-                    <!-- CONTENT HEADER -->
-                    <div class="pp-introtitle">
-                    <h2 class="pull-left red">{{$song->title }} </h2>
-                        <div id="sharethis" class="">
-                        <span class='st_sharethis_hcount' displayText='ShareThis'></span>
-                        <span class='st_facebook_hcount' displayText='Facebook'></span>
-                        <span class='st_twitter_hcount' displayText='Tweet'></span>
-                        <span class='st_fblike_hcount' displayText='Facebook Like'></span>
-                        </div>
-                    </div>
-                    <!-- ROW 1 - UPLOADER INFO & UTILITIES -->
-                    <div class="row ">
-                        <div class="blog-post-tags">
-                        <ul class="list-unstyled list-inline blog-info">
-                            <li><i class="fa fa-calendar"></i> {{ $song-> created_at}}</li>
-                            <li><i class="fa fa-pencil"></i>{{ $song->user->username}}</li>
-                            <li><i class="fa fa-comments"></i> <a href="#">{{ $song->rating_count}} Comments</a></li>
-                            <li class="blog-tags">
-                                <i class="fa fa-tags">Tags: </i> |</a>
-                 
-                            </li>
-                        </ul>                                                
-                        </div>
-                    </div>
-                    <hr>
+                <section class="col-md-7">
                      <!-- ROW 2 - UPLOAD & DESCRIPTION -->
-                    <div class="row">
-                        <section class="">
-                            <ul class="list-inline row container">
-                            <li class="thumbnail">
-                                <img class="albumart" src="/img/bg1-thumbnail.jpg">
-                            </li> 
-                            <li>
-                                <ul class="list-unstyled">
-                                    <!-- SONG TITLE & ARTIST -->
-                                    <li class="pp-title"><h4>
-                                        <span class="pp-title1">Anuofia</span>
-                                        <span class="pp-title2"><a class="red" href="pp-artist">Ajaa</a></span></h4>
-                                    </li>
-                                    
-                                    <!-- RATING -->
-                                    <li>
-                                    <div class="pp-rating">
-                                        <div>
-                                        <ul class="list-inline">
-                                             <li>User Rating :</li>
-                                                 @foreach($reviews as $review)
-                                                     @for ($i=1; $i <= 5 ; $i++)
-                                                     <li><i class="glyphicon glyphicon-star{{ ($i <= $review->rating) ? '' : '-empty'}}"></i></a></li>
-                                                     @endfor
-
-                                                    {{ $review->user ? $review->user->name : 'Anonymous'}} <span class="pull-right">{{$review->created_at}}</span>
-                                                    <p>{{{$review->comment}}}</p>
-                                                    @endforeach
-
-                            
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <hr>
-                                    <!-- PLAYER -->
-                                    <li class="pp-player scplayer">
-                                        <iframe width="100%" height="100%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/175199197&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false">
-                                        </iframe>
-                                    </li> 
+                    <div class="panel panel-default" style="margin-bottom:5px;">
+                        <div class="panel-heading panel-title">
+                                <h2 class="post-title margin0"> {{$song->title}} </h2>                                                       
+                        </div>
+                        <div class="panel-body">
+                            <div class="row padding015">
+                                <ul class="list-inline post-item">
+                                <li class="pull-left" style="padding-left: 0;"> 
+                                    {{HTML::image(isset($song->image) ? $song->image : null,'page pics', 
+                                    array('class'=>'img-responsive thumbnail margin0'))}}
+                                </li>
+                                <li>                                    
+                                    <p class="post-uploader">
+                                        <i class="fa fa-user fa-fw"></i>
+                                        {{ HTML::linkAction('ProfileController@show', $song->user->username, array('id'=>$song->user->id),
+                                        array('class'=>'post-uploader'))}}
+                                    </p>
+                                    <!-- <p class="post-desc margin0">{{ $song->description}}</p> -->
+                                    <div class="post-util">
+                                        <span><i class="fa fa-clock-o"> <!-- live date -->{{$song->timeago}} </i></span> | 
+                                        <!-- <li><i class="glyphicon glyphicon-stats">views156 Views</i></li> -->
+                                        <span class="blog-tags">
+                                        <i class="fa fa-tags">Tag: </i>                                  
+                                        <a href="#" class="btn btn-primary btn-xs">{{$genre}}</a>                                                                    
+                                        </span>
+                                    </div>               
+                                </li>
                                 </ul>
-                            </li>
-                            </ul>   
-                        </section>
-                        <section class="content-desc">
-                            <!-- DESCRIPTION -->
-                            <div class="">
-                            <h4 class="upload-desc"> Another hit banger from music producer Chopstix
-                            </h4>
-                            <p>
-                                Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet consectetur adipiscing elit. Fusce condimentum eleifend enim a feugiatt non libero consectetur adipiscing elit magna. Sed et quam lacus. Condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat.
-                            </p>
                             </div>
-                        </section>
-                    </div>
-                    <hr>
-                    <!-- SONG VIDEO -->
-                    <div class="song-vid row">
-                    </div>
-                    <hr>
-                    <!--  -->
-                    <div class="row">
-                        <!-- ADS -->
-                        <div id="" class="banner google-ads col-12"></div>
-                        <!-- TAGS -->
-                        <div class="tags"></div>
-                        <!-- ARTICLE INTERACTION -->
-                        <div class="article-share"></div>
-                        <!-- RELATED CONTENT -->
-                        <div class="related-upld">
-                            <div class="row">
+                            <div class="row padding015">
+                                @if( isset($song->soundcloud))
                                 <div class="">
-                                <div>
-                                    <h2 class="pull-left">Related Uploads</h2>
+                                <iframe width="100%" height="100px" scrolling="no" frameborder="no"
+                                 src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{$song->soundcloud}}&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false">
+                                </iframe>
                                 </div>
-                                <div id="owl-demo">          
-                                  <div class="item"><img src="/img/bg1-thumbnail.jpg" alt="Owl Image"></div>
-                                  <div class="item"><img src="/img/bg1-thumbnail.jpg" alt="Owl Image"></div>
-                                  <div class="item"><img src="/img/bg1-thumbnail.jpg" alt="Owl Image"></div>
-                                  <div class="item"><img src="/img/bg1-thumbnail.jpg" alt="Owl Image"></div>
-                                  <div class="item"><img src="/img/bg1-thumbnail.jpg" alt="Owl Image"></div>
-                                  <div class="item"><img src="/img/bg1-thumbnail.jpg" alt="Owl Image"></div>
-                                  <div class="item"><img src="/img/bg1-thumbnail.jpg" alt="Owl Image"></div>
-                                  <div class="item"><img src="/img/bg1-thumbnail.jpg" alt="Owl Image"></div>                               
+                           
+                                @elseif ( isset($song->song))
+                                <div id="wrapper">
+                                <audio class="audioplayer" preload="auto" controls style="width: 100%; margin-top:5px;">
+                                    <source src="{{asset($song->song)}}"> <!-- .mp3 -->
+                                    <source src="{{asset($song->song)}}"> <!-- .ogg -->
+                                    <source src="{{asset($song->song)}}"> <!-- .wav -->
+                                </audio>                        
                                 </div>
-                                </div>
-                            </div>
-                            <!-- COMMENTS -->
-                            <div class="comments">
-                                <hr>
-                                <!-- Recent Comments -->
-                                <div class="media">
-                                    <h3>Comments</h3>
-                                    <a class="pull-left" href="#">
-                                        <img class="small-thumbnail media-object" src="/img/bg1-thumbnail.jpg" alt="" />
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="media-heading"><a href="">Celebrity Stalker</a> <span>5 hours ago / <a href="#">Reply</a></span></h4>
-                                        <p>Donec id elit non mi portas sats eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna..</p>
-
-                                        <hr>
-
-                                        <div class="media">
-                                            <a class="pull-left" href="#">
-                                                <img class="media-object" src="/img/bg1-thumbnail.jpg" alt="" />
-                                            </a>
-                                            <div class="media-body">
-                                                <h4 class="media-heading">Media heading <span>17 hours ago / <a href="#">Reply</a></span></h4>
-                                                <p>Donec id elit non mi portas sats eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum anibhut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna..</p>
-                                            </div>
-                                        </div>
-
-                                        <hr>
-
-                                        <div class="media">
-                                            <a class="pull-left" href="#">
-                                                <img class="media-object" src="/img/bg1-thumbnail.jpg" alt="" />
-                                            </a>
-                                            <div class="media-body">
-                                                <h4 class="media-heading">Media heading <span>2 days ago / <a href="#">Reply</a></span></h4>
-                                                <p>Donec id elit non mi portas sats eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum anibhut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna..</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!--/media-->
-
-                                <div class="media">
-                                    <a class="pull-left" href="#">
-                                        <img class="media-object" src="/img/bg1-thumbnail.jpg" alt="" />
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="media-heading">Media heading <span>July 5,2013 / <a href="#">Reply</a></span></h4>
-                                        <p>Donec id elit non mi portas sats eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna..</p>
-                                    </div>
-                                </div><!--/media-->
-                                <!-- End Recent Comments -->
-
-                                <hr>
-
-                                <!-- Comment Form -->
-                                <div class="post-comment">
-                                    <h3>Leave a Comment</h3>
-                                    <form>
-                                        <label>Name</label>
-                                        <div class="row margin-bottom-20">
-                                            <div class="col-md-7 col-md-offset-0">
-                                                <input type="text" class="form-control">
-                                            </div>                
-                                        </div>
-                                        
-                                        <label>Email <span class="color-red">*</span></label>
-                                        <div class="row margin-bottom-20">
-                                            <div class="col-md-7 col-md-offset-0">
-                                                <input type="text" class="form-control">
-                                            </div>                
-                                        </div>
-                                        
-                                        <label>Message</label>
-                                        <div class="row margin-bottom-20">
-                                            <div class="col-md-11 col-md-offset-0">
-                                                <textarea class="form-control" rows="8"></textarea>
-                                            </div>                
-                                        </div>
-                                        
-                                        <p><button class="btn-u" type="submit">Send Message</button></p>
-                                    </form>
-                                </div>
-                                <!-- End Comment Form -->
+                                @else
+                                <p class="text-center alert alert-info"  role="alert"> You added an invalid Audio track/ soundcloud link!!! </p>
+                                @endif
                             </div>
                         </div>
+                        <div class="panel-footer text-left" style="padding:0 0 5px;">       
+                            <div id="sharethis" class="" style="min-height:40px; max-height: 40px; margin-top:-10px;">
+                                <!-- <span class='st_sharethis_hcount' displayText='ShareThis'></span> -->
+                                <span class='st_facebook_hcount' displayText='Facebook'></span>
+                                <span class='st_twitter_hcount' displayText='Tweet'></span>
+                                <span class='st_fblike_hcount' displayText='Facebook Like'></span>
+                            </div>                   
+                        </div>
+                    </div> <!-- upload panel ends -->                   
+                    <div class="">
+                        <!-- ADS 700 x 50-->
+                        <div class="img-responsive center-block padding50">
+                            <img class="img-responsive center-block" src="http://placehold.it/700x50+ADSpace">
+                        </div>
+                         <!-- COMMENTS -->
+                        @include('discomment')
+                       
+                        <!-- RELATED CONTENT -->
+                        <section id="recent-works" class="border-solid padding05">
+                            <h2 class="text-left margin0"> Youtube Video</h2>
+                            @if( isset($video->youtube))
+                            <div class="post-upld">
+                                <iframe width="100%" height="315" src="//www.youtube.com/embed/{{$song->youtube}}?rel=0" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            @else
+                            <p class="text-center alert alert-info"  role="alert"> No linked-related Videos! </p>
+                            @endif 
+                        </section>
+
+                        <!-- RELATED CONTENT Slider -->
+                    <div class="related-upld border-solid">
+                            <h2 class="margin0">Related Songs</h2>
+                            <div id="owl-demo" class="owl-carousel owl-theme"> 
+                             @if ($reSongs->isEmpty())
+                            <p class="alert alert-info text-center" role="alert"> There are no Related Songs!
+                            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span>
+                            <span class="sr-only">Close</span></button>
+                            </p>
+
+                            @else
+                            @foreach ($reSongs as $reSong)         
+                                    <div class="item">
+                                        <div class="lazyOwl box thumbnails img-responsive" style="background:url({{asset($reSong->image)}}) no-repeat 0 0; background-size:100% 100%;" width="auto" heigth="100px">
+                                        <a href="{{ action('SongController@showSong', $reSong->id)}}"><div class="overlay">
+                                        <span class="search">
+                                        <i class="fa fa-search-plus fa-3x"></i></span></div>
+                                        </a>
+                                        </div>
+                                        <div class="caption">
+                                        <!-- caption -->
+                                        <h3>{{ HTML::linkAction('SongController@showSong', $song->title, array('id'=> $song->id), 
+                                        array('class'=>'post-title'))}}</h3>
+                                        <p class="post-desc">
+                                        <em><!-- live date --> {{$reSong->timeago}}</em>
+                                        </p>
+                                        </div>                                    
+                                    </div>
+                                    @endforeach
+                                    @endif
+                                    <!-- End Slider -->
+                            </div>
+                    </div>
                     </div>
                 </section>
-                
-                
-            
-<!-- SIDEBAR COL-4 -->
-    <section id="sidebar" class="col col-lg-4 ">
-                    <!-- Featured Uploads-->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="text-center">Featured</h3>
-                        </div>
-                        <div class="panel-body">
-                            <a href="" class="pull-left thumbnail">
-                                <img src="/img/bg1-thumbnail.jpg">
-                            </a>
-                            <div class="post-pdn">                               
-                                    <!-- TITLE -->
-                                    <a href="post-page.html"><h3 class="media-heading lead">TITLE</h3></a>
-                                    <!-- DESCRIPTION -->
-                                    <p class="text-left">Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-                                    </p>
-                            </div>
-                            <!-- SOCIALS -->
-                            <p>
-                                        <ul class="list-inline pull-right">
-                                            <li><a href="#"><i class="glyphicon glyphicon-star"></i></a></li>
-                                            <li><a href="#"><i class="glyphicon glyphicon-star"></i></a></li>
-                                            <li><a href="#"><i class="glyphicon glyphicon-star-empty"></i></a></li>
-                                            <li><button class="btn btn-primary btn-sm" type="button">
-                                                     Views <span class="badge ">1,000</span></button>
-                                            </li>
-                                            <li><button class="btn btn-primary btn-sm" type="button">
-                                                     Comments <span class="badge">56</span></button>
-                                            </li>
-                                        </ul>
-                            </p>
-                        </div>
-                        <div class="panel-body">
-                            <a href="" class="pull-left thumbnail">
-                                <img src="/img/bg1-thumbnail.jpg">
-                            </a>
-                            <div class="post-pdn">                               
-                                    <!-- TITLE -->
-                                    <a href="post-page.html"><h3 class="media-heading lead">TITLE</h3></a>
-                                    <!-- DESCRIPTION -->
-                                    <p class="text-left">Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-                                    </p>
-                            </div>
-                            <!-- SOCIALS -->
-                            <p>
-                                        <ul class="list-inline pull-right">
-                                            <li><a href="#"><i class="glyphicon glyphicon-star"></i></a></li>
-                                            <li><a href="#"><i class="glyphicon glyphicon-star"></i></a></li>
-                                            <li><a href="#"><i class="glyphicon glyphicon-star-empty"></i></a></li>
-                                            <li><button class="btn btn-primary btn-sm" type="button">
-                                                     Views <span class="badge ">1,000</span></button>
-                                            </li>
-                                            <li><button class="btn btn-primary btn-sm" type="button">
-                                                     Comments <span class="badge">56</span></button>
-                                            </li>
-                                        </ul>
-                            </p>
-                        </div>
-                        <div class="panel-body">
-                            <a href="" class="pull-left thumbnail">
-                                <img src="/img/bg1-thumbnail.jpg">
-                            </a>
-                            <div class="post-pdn">                               
-                                    <!-- TITLE -->
-                                    <a href="post-page.html"><h3 class="media-heading lead">TITLE</h3></a>
-                                    <!-- DESCRIPTION -->
-                                    <p class="text-left">Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-                                    </p>
-                            </div>
-                            <!-- SOCIALS -->
-                            <p>
-                                        <ul class="list-inline pull-right">
-                                            <li><a href="#"><i class="glyphicon glyphicon-star"></i></a></li>
-                                            <li><a href="#"><i class="glyphicon glyphicon-star"></i></a></li>
-                                            <li><a href="#"><i class="glyphicon glyphicon-star-empty"></i></a></li>
-                                            <li><button class="btn btn-primary btn-sm" type="button">
-                                                     Views <span class="badge ">1,000</span></button>
-                                            </li>
-                                            <li><button class="btn btn-primary btn-sm" type="button">
-                                                     Comments <span class="badge">56</span></button>
-                                            </li>
-                                        </ul>
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Top 10 Uploads-->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="text-center">Top 10 Uploads</h3>
-                        </div>
-                        <div class="panel-body">
-                           <a href="" class="pull-left thumbnail">
-                                <img src="/img/bg1-thumbnail.jpg">
-                            </a>
-                                    <div class="post-pdn">                               
-                                    <!-- TITLE -->
-                                    <a href="post-page.html"><h3 class="media-heading lead">TITLE</h3></a>
-                                    <!-- DESCRIPTION -->
-                                    <p class="text-left">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit
-                                    </p>
-                                    </div>
-                                    <!-- SOCIALS -->
-                                    <p>
-                                        <ul class="list-inline pull-right">
-                                            <li><a href="#"><i class="glyphicon glyphicon-star"></i></a></li>
-                                            <li><a href="#"><i class="glyphicon glyphicon-star"></i></a></li>
-                                            <li><a href="#"><i class="glyphicon glyphicon-star-empty"></i></a></li>
-                                            <li><button class="btn btn-primary btn-sm" type="button">
-                                                     Views <span class="badge ">1,000</span></button>
-                                            </li>
-                                            <li><button class="btn btn-primary btn-sm" type="button">
-                                                     Comments <span class="badge">56</span></button>
-                                            </li>
-                                        </ul>
-                                    </p> 
-                        </div>
-                    </div>
-                    <!--  Uploads-->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="text-center">All-time Uploads</h3>
-                        </div>
-                        <div class="panel-body">
-                            <a href="" class="pull-left thumbnail">
-                                <img src="/img/bg1-thumbnail.jpg">
-                            </a>
-                                    <div class="post-pdn">                               
-                                    <!-- TITLE -->
-                                    <a href="post-page.html"><h3 class="media-heading lead">TITLE</h3></a>
-                                    <!-- DESCRIPTION -->
-                                    <p class="text-left">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit
-                                    </p>
-                                    </div>
-                                    <!-- SOCIALS -->
-                                    <p>
-                                        <ul class="list-inline pull-right">
-                                            <li><a href="#"><i class="glyphicon glyphicon-star"></i></a></li>
-                                            <li><a href="#"><i class="glyphicon glyphicon-star"></i></a></li>
-                                            <li><a href="#"><i class="glyphicon glyphicon-star-empty"></i></a></li>
-                                            <li><button class="btn btn-primary btn-sm" type="button">
-                                                     Views <span class="badge ">1,000</span></button>
-                                            </li>
-                                            <li><button class="btn btn-primary btn-sm" type="button">
-                                                     Comments <span class="badge">56</span></button>
-                                            </li>
-                                        </ul>
-                                    </p>
-                        </div>
-                    </div>
-                </section>
-
-</div>
-@include('layout.footer')
+                @stop
+                <!-- SIDEBAR COL-5 -->
+                @include('song.song-sidebar')
+</div> <!-- End of wrapper -->   
+    <!-- Footer -->
+    @section('scripts2')
     <!-- jQuery Version 1.11.0 -->
     <script src="{{ asset('js/jquery-1.11.0.js') }}"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    
-    <script src="{{ asset('plugins/owl-carousel/owl.carousel.js') }}"></script>
 
     <!-- Script to Activate the Carousel -->
+    <script src="{{ asset('plugins/owl-carousel/owl.carousel.js')}}"></script>
     <script>
-
     $(document).ready(function() {
       $("#owl-demo").owlCarousel({
         autoPlay: 3000,
+        lazyLoad : true,
         items : 4,
-        itemsDesktop : [1199,3],
-        itemsDesktopSmall : [979,3]
+        itemsDesktop : [1199,4],
+        itemsDesktopSmall : [979,4],
+        itemsTablet : [600,2],
+        itemsMobile : [320,1]
       });
-
     });
     </script>
-</body>
-</html>
+   @stop

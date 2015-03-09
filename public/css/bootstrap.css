@@ -956,7 +956,7 @@ img {
        -o-transition: all .2s ease-in-out;
           transition: all .2s ease-in-out;
 }
-.img-circle {
+.circle {
   border-radius: 50%;
 }
 hr {
@@ -3984,7 +3984,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     margin-right: -15px;
   }
 }
-@media (min-width: 768px) {
+.@media (min-width: 768px) {
   .navbar-left {
     float: left !important;
   }

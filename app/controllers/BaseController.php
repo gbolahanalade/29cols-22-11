@@ -2,6 +2,7 @@
 
 class BaseController extends Controller {
 
+protected $layout = 'layout.master';
 protected function me()
 {
 	return Auth::user();

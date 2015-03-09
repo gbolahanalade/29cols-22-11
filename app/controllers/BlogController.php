@@ -11,7 +11,7 @@ class BlogController extends BaseController
     }
         $blogs = Blog::orderBy('id','desc')->paginate(10);
        
-        return View::make('layout.index', compact('data','blogs'));
+        return View::make('layout.home', compact('data','blogs'));
     }
 
     

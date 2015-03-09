@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="utf-8">
@@ -12,7 +11,7 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico">
 
-    <title>Upload | 27 Colours</title>
+    <title> Video Upload | 27 Colours</title>
 
     <!-- Bootstrap Core & CSS Global Compulsory -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -41,7 +40,7 @@
     <!--=== Content Part ===-->    
 <div class="container">
     <!--Upload Block-->
-    <form class="upld-block">
+    <form action="{{ url('/video/create')}}" method="POST" class="upld-block">
         <!-- row start -->
         <div class="row">
             <div class="col-12">
@@ -50,13 +49,14 @@
                 <li><h2>Add Your Songs, Videos & Pictures</h2></li>
                 <li><h6 class="red">Maximum 10 Uploads (Add Your Best)</h6></li>            
             </ul>
-            </div><!-- end column 1 -->
+            </div>
             <hr> 
             <!-- upload section start -->
             <div id="upld-section" class="col-12 text-center">
                 <h2>Upload From Computer</h2>
                 <div class="upld-comp">                
-                    <a class="btn btn-u btn-file btn-file-inverse" type="file" placeholder=""><i class ="fa fa-upload"> Upload (Song/Video/Picture)<input type="file"></i></a>
+                    <a class="btn btn-u btn-file btn-file-inverse" type="file" placeholder="">
+                        <i class ="fa fa-upload"> Upload (Song/Video/Picture)<input type="file"></i></a>
                 </div>
                 <!-- separator -->
                 <div class="heading upld-section-seprtr"><h2>OR</h2></div>         
@@ -94,11 +94,16 @@
             <hr> <!-- divider -->
             <!-- upload details start -->
             <h2>Upload Details</h2>
-            <div class="margin-bottom-20 sky-form upld-details col-12" action="">
+            <div class="margin-bottom-20 sky-form upld-details col-12">
             <div class="row margin-bottom-20">
                 <label for="upld-title" class="control-label">Title</label>
                 <input type="text" class="form-control" id="upld-title" placeholder="Enter Title (Required)">
             </div>
+
+        </form>
+
+        <form action="{{ url('/video/art/upload')}}" method="POST" class="upld-block">
+
             <div class="row">
                 <div class="upld-imgbdrght col-sm-6">
                     <label for="upld-img" class="control-label">Album Art (Optional)</label>

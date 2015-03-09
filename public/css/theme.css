@@ -1,0 +1,226 @@
+/* Add here all your css styles (customizations) */
+
+
+/* 
+    GENERAL
+*/
+
+a {
+   color: #;
+}
+
+a:focus, 
+a:hover, 
+a:active {
+	color: #;
+}
+
+a.read-more:hover { 
+	color:#; 
+}
+
+/* Header */
+
+.header .navbar-default .navbar-nav > .active > a {
+	color: #;
+}
+
+/*Navbar Toggle*/
+.navbar-toggle,
+.navbar-default .navbar-toggle:hover, 
+.navbar-default .navbar-toggle:focus {
+	background: #;
+}
+
+.navbar-toggle:hover {
+	background: # !important;
+}
+
+.navbar-default .navbar-toggle {
+	border-color: #;
+}
+
+/*Responsive Navbar*/
+@media (max-width: 767px) {
+	.header .navbar-default .navbar-nav > li > a:hover {
+		color: #;
+	}
+
+	.header .navbar-default .navbar-nav > .active > a,
+	.header .navbar-default .navbar-nav > .active > a:hover,
+	.header .navbar-default .navbar-nav > .active > a:focus {
+		background: #;
+	}
+}
+
+@media (min-width: 767px) {
+	/*Navbar*/
+	.header .navbar-default .navbar-nav > li > a:hover,
+	.header .navbar-default .navbar-nav > .active > a {
+		border-bottom: solid 2px #;
+	}
+
+	.header .navbar-default .navbar-nav > .open > a,
+	.header .navbar-default .navbar-nav > .open > a:hover,
+	.header .navbar-default .navbar-nav > .open > a:focus {
+		color: #;
+	}
+
+	/*Dropdown Menu*/
+	.header .dropdown-menu { 
+		border-top: solid 2px #; 
+	}	
+}
+
+/*Search Box*/
+.header .navbar .nav > li > .search:hover {
+	color: #;
+	border-bottom-color: #;
+}
+
+@media (max-width: 767px) {
+	.header .navbar .nav > li > .search:hover {
+		background: #;
+	}
+}
+
+.btn-u {
+	background: #;
+}
+
+.btn-u:hover, 
+.btn-u:focus, 
+.btn-u:active, 
+.btn-u.active, 
+.open .dropdown-toggle.btn-u {
+	background: #;
+}
+
+/*Buttons Color*/
+.btn-u-split.dropdown-toggle {
+   border-left: solid 1px #;
+}
+
+/*Typography
+------------------------------------*/
+/*Heading*/
+.headline h2, 
+.headline h3, 
+.headline h4 {
+	border-bottom:2px solid #;
+}
+
+/*Carousel
+------------------------------------*/
+.carousel-arrow a.carousel-control:hover {
+	color: #;
+}
+
+/*Footer
+------------------------------------*/
+.footer a,
+.copyright a,
+.footer a:hover,
+.copyright a:hover {
+	color: #;
+}
+
+/*Blog Posts
+------------------------------------*/
+
+
+/*Post Comment*/
+.post-comment h3, 
+.blog-item .media h3,
+.blog-item .media h4.media-heading span a {
+	color: #;
+}
+
+/*Tabs
+------------------------------------*/
+/*Tabs v1*/
+.nav-tabs { 
+	border-bottom: solid 2px #; 	
+}
+
+.nav-tabs > .active > a, 
+.nav-tabs > .active > a:hover, 
+.nav-tabs > .active > a:focus { 
+	background: #; 
+}
+
+.nav-tabs > li > a:hover { 
+	background: #; 
+}
+
+/*Breadcrumb
+------------------------------------*/
+.breadcrumb li.active,
+.breadcrumb li a:hover {
+	color:#;
+}
+
+/*Blog Page
+------------------------------------*/
+.blog h3 {
+	color:#;
+}
+.blog li a:hover {
+	color:#;
+}
+
+/*Blog Tags*/
+ul.blog-tags a:hover {
+	background: #;
+}
+
+.blog-post-tags ul.blog-tags a:hover {
+    background: none repeat scroll 0 0 #;
+}
+
+/*Blog Photos*/
+.blog-photos li img:hover {
+	box-shadow: 0 0 0 2px #;
+}
+
+/*Blog Latest Tweets*/
+.blog-twitter .blog-twitter-inner:hover {
+	border-color: #;
+	border-top-color: #;	
+}
+.blog-twitter .blog-twitter-inner:hover:after {
+	border-top-color: #;	
+}
+
+.blog-twitter .blog-twitter-inner a {
+	color: #;
+}
+
+/*Blog Item Page
+------------------------------------*/
+.blog-item h4.media-heading span a {
+	color:#;
+}
+
+/*Font Awesome Icon Page Style*/
+.fa-icons li:hover { 
+   color: #;
+}
+
+.fa-icons li:hover i {
+   background: #; 
+}
+
+/*GLYPHICONS Icons Page Style*/
+.bs-glyphicons li:hover {
+   color: #;
+}
+
+/*Navigation
+------------------------------------*/
+/*Pager*/
+.pager li > a:hover, 
+.pager li > a:focus {
+   background: #c0392b;
+   border-color: #c0392b;   
+}

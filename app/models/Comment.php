@@ -2,9 +2,15 @@
 
 class Comment extends Eloquent{
 	
-	public function blog()
+	public function commentable()
 	{
-		return $this->belongsTo('Blog');
+		return $this->morphTo();
+	}
+
+	public function user()
+
+	{
+		return $this->belongsTo('User');
 	}
 
 

@@ -5,113 +5,334 @@ class SongController extends BaseController
     /* get functions */
     public function index()
     {
-        $songs = Song::orderBy('id','desc')->paginate(10);
-       
-        return View::make('song.songs',compact('songs'));
+        $songs =    Song::orderBy('id','desc')->take(8)->get();
+        $afrobeats= Song::where('genre', '=', 'Afrobeat')->take(3)->orderBy('id','desc')->get();
+        $highlifes= Song::where('genre', '=', 'highlife')->take(3)->orderBy('id','desc')->get();
+        $rnbs=      Song::where('genre', '=', 'RnB')->take(3)->orderBy('id','desc')->get();
+        $hips=      Song::where('genre', '=', 'Hip-Hop')->take(3)->orderBy('id','desc')->get();
+        $gospels=   Song::where('genre', '=', 'Gospel')->take(3)->orderBy('id','desc')->get();
+        $others=    Song::where('genre', '=', 'Others')->take(3)->orderBy('id','desc')->get();
+        
+        return View::make('song.index',['songs'=>$songs,'afrobeats'=>$afrobeats,'highlifes'=>$highlifes, 'rnbs'=>$rnbs,
+         'hips'=>$hips, 'gospels'=>$gospels,'others'=>$others]);
+
     }
 
-    public function latest()
-    {
-        $songs = Song::orderBy('id','desc')->paginate(10);
-        
-        $this->layout->main = View::make('hhome')->nest('content','posts.latest',compact('posts'));
-    }
 
     public function showSong(Song $song)
     {
-        $reviews = $song->reviews()->with('user')->approved()->notSpam()->orderBy('created_at','desc')->paginate(20);
-       
-        return View::make('song.single')
-        ->with('song',$song)
-        ->with('reviews',$reviews);
-    }
+         
+        $id= $song->id;
+        $genre= $song->genre;
+        $reSongs =  Song::where('genre', '=', $genre)->take(5)->orderBy('id','desc')->get();
 
+         return View::make('song.single')
+        ->with('song',$song)
+        ->with('genre', $genre)
+        ->with('reSongs',$reSongs);
+       
+    }
      public function showSongP(Song $song)
     {
-        $reviews = $song->reviews()->with('user')->approved()->notSpam()->orderBy('created_at','desc')->paginate(10);
-        $tags =$song->tags;
+         $reviews = $song->reviews()->with('user')->approved()->notSpam()->orderBy('created_at','desc')->paginate(20);
+         $tags =$song->tags;
        
         return View::make('profile.single2')
-        ->with('song','$song')
-        ->with('reviews','$reviews')
-        ->with('tag', '$tags');
+        ->with('song',$song)
+        ->with('reviews',$reviews)
+        ->with('tag', $tags);
     }
 
     public function getNew()
     {
-        if (Auth::check()) {
-        
-        return View::make('profile.songs.upload2');
+    if (Auth::check()) {
+
+     $user = Auth::user();      
+     $s_count= $user->songs()->count();
+     if ($s_count < 10 ) {
+        return View::make('song.song-upload');
+       
+            }
+            else {
+                return View::make('notice');
+            }
         }
 
-        else {
+         else {
             return Redirect::to('/profile/#error')->with('error', 'Please Login/ Signup to upload');
         }
 
      }
 
-     public function postCreate()
+
+
+     public function postArtCreate()
      {
-        $validator= Validator::make(Input::all(), Song::$rules);
+        $song = [
+            'soundcloud' => Input::get('soundcloud'),
+            'song' => Input::file('song'),
+        ];
 
-        if ($validator->passes()) {
-            $song =new Song;
-            $song->title = Input::get('title');
-            $song->description= Input::get('description');
-            $song->soundcloud_link =Input::get('soundcloud');
-            $song->youtube_link = Input::get('youtube');
-            $song->tags = Input::get('tags');
-            $song->genre =Input::get('genre');
+        $rules = [
+            'soundcloud' => 'min:5'|'required_without:song',
+            'song'=> 'mimes:mp3,aac,wav'|'required_without:soundcloud',
+        ];
 
-            //$music = Input::file('song');
-            //$song_file_name = date('Y-m-d-H:i:s')."-".$music->getClientOriginalName();
-            //$music->move('upload/songs', $song_file_name); 
-
-           // $song->song_url='uploads/songs/'.$song_file_name;
-           
-
-            //$music= Input::file('music');
-            //$music_filename= date('Y-m-d-H:i:s').'-'.$music->getClientOriginalName();
-            //$music->move('upload/songs', $music_filename);
-            //$song->song_url='uploads/songs/'.$music_filename;
-
-
-            /*$song_art= $_FILES['song_image'];
-            $song_art_filename= date('Y-m-d-H:i:s').'-'.$song_art->getClientOriginalName();
-            $path= public_path('img/songs/'.$song_art_filename);
-            Image::make($song_art->getRealPath())->resize(468, 246)->save('public/img/songs/'.$song_art_filename);
-            $song->image ='img/songs/'.$song_art_filename;
-            $song->user()->associate(Auth::user());
-            $song->save(); */
-
-            $image = Input::file('song_image');
-           // $filename = date('Y-m-d-H:i:s').'-'.$image->getClientOriginalName();
-            $filename = str_random(12);
-           // $desPath= public_path().'/uploads';
-           $desPath=public_path('img/songs/');
-
-            //$path= 'img/songs/'. $filename;
-           // $filename =date('Y-m-d-H:i:s').'-'.$image->getClientOriginalName();
-            //Image::make($image->getRealPath())->resize(468, 246)->save('public/'. $path);
-            $upload_success =$image->move($desPath,$filename);
-
+       $validator = Validator::make($song, $rules);
+        if ($validator->passes())
+        {
         
-            $song->image ='img/songs/'.$filename; 
-            $song->user()->associate(Auth::user());
-            $song->save();   
+            $song =new Song;
+            $soundcloud = Input::get('soundcloud');
+            $mus= $song->getSoundcloud($soundcloud);
+            $song->soundcloud= $mus;
 
-            return Redirect::to('/profile')
-            ->with('notice', 'New song added!!!');
+            if (Input::hasFile('song'))
+             {
 
-        }
-        return Redirect::to('/song/upload')
-        ->with('error', $validator->messages())
-        ->withInput(Input::except('song_image'));
+                $music = Input::file('song');
+                $extension = $music->getClientOriginalExtension();
+                $filename = str_random(12);
+                $name = $filename.'.'.$extension;
+                $desPath= public_path('img/songs/');
+                $upload_success = $music->move($desPath, $name);
+                $song->song ='img/songs/'.$name;
+
+                 if (! isset($song->song))
+                    { 
+                 return Redirect::to('/song/upload')
+                ->with('errors', 'Problem with your upload');
+                    }
+                }
+
+                $song->user()->associate(Auth::user());
+                $song->save();   
+
+                return View::make('song.last-upload')
+                 ->with('song', $song)
+                 ->with('notices', 'New song added!!! Complete the remaining details below');
+            }
+            
+         return Redirect::to('/song/upload')
+        ->with('errors', $validator->messages())
+        ->withInput(Input::except('song'));
         
 
     }
 
+    public function postCreate()
+    {
+        $music = [
+            'youtube' => Input::get('youtube'),
+            'title' => Input::get('title'),
+            'description' => Input::get('description'),
+            'image' => Input::file('image'),
+            'song' =>Input::file('song'),
+            'soundcloud' => Input::get('soundcloud'),
+            
+            
+        ];
+
+        $rules = [
+            'youtube' => 'min:5',
+            'title' => 'required',
+            'description' => 'min:5',
+            'image'=> 'required|image|mimes:jpeg,jpg,bmp,png,gif|max:3000',
+            'song' => 'required_without:soundcloud|max:8000',
+            'soundcloud' => 'required_without:song|min:5',
+         ];
+
+        $validator = Validator::make($music, $rules);
+        if ($validator->passes())
+        {
+
+            $song =new Song;
+            $soundcloud = Input::get('soundcloud');
+            $mus= $song->getSoundcloud($soundcloud);
+            $song->soundcloud= $mus;
+
+            if (Input::hasFile('song'))
+             {
+            $music = Input::file('song');
+            $song_fileName= $music->getClientOriginalName();
+            $name = Str::random(6).'_'.$song_fileName;
+            $desPath= public_path('img/songs/');
+            $upload_success = $music->move($desPath, $name);
+            $song->song ='img/songs/'.$name;
+           }
+
+            $youtube = Input::get('youtube');
+            $vid= $song->getYoutube($youtube);
+            $song->youtube= $vid;
+            $song->title = Input::get('title');
+            $song->description= Input::get('description');
+            $song->genre =Input::get('genre');
+
+            $imag= Input::file('image');
+            $image_name = $imag->getClientOriginalName();
+            $name = Str::random(6).'_'.$image_name;
+            $desPath= public_path('img/songs/images/');
+            $upload_success =$imag->move($desPath, $name);
+            $song->image='img/songs/images/'.$name;
+
+            $song->user()->associate(Auth::user());
+            $song->save(); 
+
+            return Redirect::to('/profile')
+            ->with('notices', 'New song added!!!');
+       
+  
+        }
+
+        return Redirect::to('/song/upload')
+        ->with('errors', $validator->messages())
+        ->withInput(Input::only('title','description','youtube','soundcloud','genre'));
+     }
+
      
+
+     public function edit(Song $song)
+     {
+        return View::make('profile.songs.edit2')
+        ->with('song', $song);
+     }
+
+     public function doEdit()
+     {
+
+        $music = [
+            'youtube' => Input::get('youtube'),
+            'title' => Input::get('title'),
+            'description' => Input::get('description'),
+            'image' => Input::file('image'),
+            
+        ];
+
+        $rules = [
+            'youtube' => 'min:5',
+            'title' => 'required|min:4',
+            'description' => 'min:5',
+            'image'=> 'required|image|mimes:jpeg,jpg,bmp,png,gif',
+
+        ];
+
+        $validator = Validator::make($music, $rules);
+        if ($validator->passes())
+        {
+
+            $song= Song::findorFail(Input::get('id'));
+            $song->title= Input::get('title');
+            $song->description = Input::get('description');
+            $song->genre =Input::get('genre');
+
+        
+            $youtube = Input::get('youtube');
+            $vid= $song->getYoutube($youtube);
+            $song->youtube= $vid;
+
+            $tags= new Tag;
+            $tags->name= Input::get('tags');
+            $tags->type = 'Song';
+            $song->tags()->save($tags);
+
+        
+            $imag= Input::file('image');
+
+            $filename = str_random(12);
+            $desPath= public_path('img/songs/images/');
+            $upload_success =$imag->move($desPath, $filename);
+            $song->image='img/songs/images/'.$filename; 
+            $song->save();
+
+            return Redirect::to('/profile')
+            ->with('notices', 'New song added!!!');
+     }
+
+        //return Redirect::to('/song/edit/{$song}')
+     //->with('errors', $validator->messages())
+        return Redirect::back()
+       ->with('errors', $validator->messages())
+        ->withInput(Input::except('image'));
+
+     }
+
+     public function delete(Song $song)
+     {
+        $user = Auth::user();
+        return View::make('profile.songs.delete')
+        ->with('song', $song)
+        ->with('user', $user);
+     }
+
+
+     public function doDelete()
+     {
+       $song=Song::findorfail(Input::get('id'));
+         
+        if ($song) {
+            File::delete('public/img/songs/'.$song->song);
+            File::delete('public/img/songs/images'.$song->image);
+             $song->delete();
+
+               return Redirect::to('/profile')
+                ->with('notices', 'Song deleted successfully');
+    }
+
+         return Redirect::to('/profile')
+        ->with('errors', 'Error deleting song');
+
+      
+  }
+
+
+  public function search()
+    {
+        $search =Input::get('s-term');
+        $songs= Song::search($search)->paginate(10);
+
+      
+      $videos = Video::orderBy('id','desc')->paginate(10);
+      $galleries= Gallery::orderBy('id','desc')->paginate(10);
+
+     return View::make('layout.home')
+     ->with('songs', $songs)
+     ->with('galleries', $galleries)
+     ->with('videos', $videos)
+     ->with('notices', 'Results for song'. $search.' :');
+
+     
+        
+    }
+
+    public function editSong()
+    {
+      return View::make('song.upload');
+    }
+
+    public function updateSong()
+    {
+       $song =new Song;
+       $song->title = Input::get('title');
+       $song->description = Input::get('description');
+
+        $file = Input::file('pic');
+
+        $fileName = Str::random(12);
+        $extension = $file->getClientOriginalExtension();
+        $name = $fileName.'.'.$extension;
+
+     
+        $desPath=public_path('img/songs/');
+
+        $song->image = 'img/songs/'.$name;
+        $song->user()->associate(Auth::user());
+        $song->save();
+        $file->move($desPath,$name);
+        
+         return Redirect::to('/profile')
+         ->with('noticeg', 'New Song added!!!');
+    }
+
 
     public function newPost()
     {

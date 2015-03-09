@@ -123,8 +123,15 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Zizaco\Confide\ServiceProvider',
 		 'Artdarek\OAuth\OAuthServiceProvider',
-		 'Intervention\Image\ImageServiceProvider'
+		 'Intervention\Image\ImageServiceProvider',
+		 'Fbf\LaravelYoutube\LaravelYoutubeServiceProvider',
+		 'Fbf\LaravelComments\LaravelCommentsServiceProvider',
+		 'Cohensive\Embed\EmbedServiceProvider',
+		
+		
 
+		 
+		
 	),
 
 	/*
@@ -193,7 +200,12 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Confide'    => 'Zizaco\Confide\Facade',
 		'OAuth' => 'Artdarek\OAuth\Facade\OAuth',
-		'Image' => 'Intervention\Image\Facades\Image'
+		'Image' => 'Intervention\Image\Facades\Image',
+		'Youtube'         => 'Fbf\LaravelYoutube\YoutubeFacade',
+		'Embed' => 'Cohensive\Embed\Facades\Embed',
+	
+		
+		
 
 	),
 

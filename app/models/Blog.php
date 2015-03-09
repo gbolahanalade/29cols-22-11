@@ -12,10 +12,10 @@ class Blog extends Eloquent {
 
 	public function tags()
 	{
-		return $this->belongsToMany('BlogTag','blog_blogtag');
+		return $this->morphToMany('Tag','taggable');
 	}
 	public function comments()
 	{
-		return $this->hasMany('Comment');
+		return $this->morphMany('Comment','commentable');
 	}
 }

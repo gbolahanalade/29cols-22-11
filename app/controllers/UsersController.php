@@ -54,7 +54,7 @@ class UsersController extends Controller
         } else {
             $error = $user->errors()->all(':message');
 
-            return Redirect::action('UsersController@postCreate')
+            return Redirect::action('UsersController@getCreate')
                 ->withInput(Input::except('password'))
                 ->with('error', $error);
         }
@@ -85,7 +85,7 @@ class UsersController extends Controller
     {
         $repo = App::make('UserRepository');
         $input = Input::all();
-       // $userame=Input::get('username');
+       // $username=Input::get('username');
         
 
         if ($repo->login($input)) {

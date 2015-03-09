@@ -8,29 +8,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="favicon.ico">
+    <title>Home | 27 Colours</title>
 
-    <title>Post Page | 27 Colours</title>
-
-    <!-- Bootstrap Core & CSS Global Compulsory -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <!-- Global Core CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-
-    <!-- CSS Page Style -->    
-    <link rel="stylesheet" href="{{ asset('css/pages/post-page.css') }}">
-
-    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
-    <!-- Custom CSS Plugins -->
-    <link rel="stylesheet" href="{{ asset('plugins/line-icons/line-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('plugins/owl-carousel/owl.carousel.css') }}">
-    <link href="{{ asset('plugins/owl-carousel/owl.theme.css') }}" rel="stylesheet">
-
-    <!-- CSS Theme -->    
-    <link rel="stylesheet" href="{{ asset('css/themes/default.css') }}" id="style_color">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('plugins/revolution-slider/rs-plugin/css/settings.css') }}" type="text/css" media="screen">
 
     <!-- Custom Fonts -->
     <link href="{{ asset('font-awesome-4.1.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
@@ -42,31 +29,15 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
     <script type="text/javascript">var switchTo5x=true;</script>
     <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
     <script type="text/javascript">stLight.options({publisher: "462b8e41-098f-4d6e-af7f-52472fed576a", doNotHash: false, doNotCopy: false, hashAddressBar: true});</script>
-
 </head>
 
-<body id="page-top">    
+<body id=""  >
 <div class="wrapper">
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation">
-        <!-- HEADER 1-->    
-        <div class="container">
-            <div class="row">
-                <!-- HEADER 1 COLUMN 1 -->    
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <a class="headmargintop logo navbar-brand navbar1-brand" href="#"><img class="img-responsive center-block" src="img/logo.fw.png" alt="27 Colours"></a>
-                </div>
-                <!-- HEADER 1 COLUMN 2 -->    
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
-                        <a class="navbar-brand navbar1-brand img-responsive" href="#"><img class="center-block" src="http://placehold.it/700x50+ADSpace" alt="AD Space"></a>
-                </div>
-            </div>
-        </div>
-        <!-- HEADER 2 -->    
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">   
         <div class="main-menu">
           <div class="row container center-block">
                     <!-- Brand and toggle get grouped for better mobile display -->
@@ -85,32 +56,13 @@
                      <!-- MENU --> 
                     <div class="">
                         <ul class="nav navbar-nav navbar-left">
-                            <li>
-                                <a href="{{action('HomeController@getIndex')}}"><i class="fa fa-home fa-fw centered"></i> <span class="network-name"></span></a>
+                            <li class="active">
+                                <a href="{{ action('HomeController@index')}}" class="active"><i class="fa fa-home fa-fw centered"></i> <span class="network-name"></span></a>
                             </li>
-                            <li class="active"><a href="{{ action('HomeController@getIndex')}}">Songs</a></li>
-                            <li><a href="videos.html">Videos</a></li>
-                            <li><a href="gallery.html">Gallery</a></li>
-                            <li><a href="talents.html">Talents</a></li>
-                            <li class="dropdown">
-                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                                Pages<span class="hidden-xs hidden-sm caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-
-                                @if(Auth::check())
-                                    <li>{{ HTML::linkRoute('profile', 'Profile Page' )}}</li>
-                                    <li>{{ HTML::linkRoute('logout', 'logout' )}} </li>
-                                @else
-                                                               
-                                <li>{{ HTML::linkRoute('register', 'Registration' )}}</li>
-                                <li>{{ HTML::linkRoute('login', 'Sign In' )}}</li>
-                                <li><a href="uploadsong-page.html">Song Upload page</a></li>
-                                <li><a href="uploadvideo-page.html">Video Upload page</a></li>
-                                <li><a href="uploadpicture-page.html">Pictures Upload page</a></li>
-                                @endif                          
-                        </ul>
-                            </li>  
+                            <li><a name="#songs" href="{{ action('SongController@index')}}">Songs</a></li>
+                            <li><a href="{{ action('VideoController@index')}}">Videos</a></li>
+                            <li><a href="{{ action('GalleryController@index')}}">Gallery</a></li>
+                            <li><a href="{{ action('TalentController@index')}}">Talents</a></li>                       
                         </ul>
                     </div>
                      <!-- SOCIALS --> 
@@ -136,19 +88,35 @@
                 </div>
             </div>
             <!-- HEADER 2 COLUMN 2 -->    
-             <div class="col-sm-4 col-xs-4">
+            <div class="col-sm-4 col-xs-4">
                      <!-- MENU --> 
                         <ul class="list-inline socials btn-group">
                             @if(Auth::check())
-                                    <li class="btn-group"><button class="btn btn-default btn-xs btn-block" type="button">{{ HTML::linkRoute('logout', 'logout' )}} </button></li>
+                                    <li class="dropdown">
+                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                            <img src="../img/user.jpg" width="28px" height="28px" alt="User">
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu">
 
+                                            @if(Auth::check())
+                                                <li>{{ HTML::link('/profile', 'Profile Page')}}</li>
+                                                <li>{{ HTML::linkRoute('logout', 'logout' )}} </li>
+                                            @else
+                                                                           
+                                            <li>{{ HTML::linkRoute('register', 'Registration', array('class'=>'hidden-xs hidden-sm'))}}</li>
+                                            <li>{{ HTML::linkRoute('login', 'Sign In' )}}</li>
+                                            <li><a href="uploadsong-page.html">Song Upload page</a></li>
+                                            <li><a href="uploadvideo-page.html">Video Upload page</a></li>
+                                            <li><a href="uploadpicture-page.html">Pictures Upload page</a></li>
+                                            @endif   
                                 @else
                             <li class="btn-group">
-                                <button class="upload btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Upload <i class="fa fa-upload fa-fw centered"></i></button>
+                                <button class="upload btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"><span class="hidden-xs hidden-sm">Upload</span>  <i class="fa fa-upload fa-fw centered"></i></button>
                             </li>
                             <li class="btn-group">
-                                <button class="upload btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Register | Sign in
-                                <span class="hidden-xs hidden-sm caret"></span>
+                                <button class="upload btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"><span class="hidden-xs hidden-sm">Register | Sign in
+                                </span><span class="caret"></span>
                                 <i class="fa fa-user fa-fw centered"></i></button>
                                     <ul class="list-unstyled dropdown-menu" role="menu">
                                         <li><button class="btn btn-default btn-xs btn-block" type="button">{{ HTML::linkRoute('register', 'Registration' )}}</button></li>
@@ -175,19 +143,19 @@
                     <div>
                     <!-- CONTENT HEADER -->
                     <div class="pp-introtitle">
-                    <h2 class="pull-left red"> {{ $song->title}}</h2>
+                    <h2 class="text-left red"> {{ $song->title}}</h2>
                     </div>
                     <!-- ROW 1 - UPLOADER INFO & UTILITIES -->
                     <div class="border-bttm">
                         <div class="blog-post-tags">
                         <ul class="list-inline blog-info">
                             <li><i class="fa fa-calendar"></i> {{ $song->created_at }} </li>
-                            <li><i class="fa fa-pencil"></i>{{ $song->user->username}}S</li>
+                            <li><i class="fa fa-pencil"></i>{{ $song->user->username}}</li>
                             <li><i class="fa fa-comments"></i> <a href="#">{{ $song->rating_count}}</a></li>
                             <li class="blog-tags">
                                 <i class="fa fa-tags">Tags: </i>
-                                @foreach ($song->tags as $tag) 
-                                 <span class="label label-info">{{HTML::linkRoute('song.show',$tag->name, $song->id)}}</span>
+                                @foreach ($song->tags() as $tag) 
+                                 <span class="label label-info">{{$tag->name}}</span>
                                  @endforeach
                             </li>
                         </ul>                                                
@@ -205,12 +173,12 @@
                         <section class="row border-bttm">
                             <ul class="col-md-4 list-unstyled">
                                 <li class="thumbnail">
-                                    <img class="albumart" src="img/bg1-thumbnail.jpg"></li> 
+                                    {{ HTML::image($song->image, 'album Art', array('class'=>'albumart')) }} 
+                                </li> 
                                 <!-- SONG TITLE & ARTIST -->
                                 <li class="">
                                     <ul class="list-unstyled">
                                         <li><span class="pp-title1">{{$song->user->username}}</span></li>
-                                        <li><span class="pp-title2"><a class="red" href="{{action('ProfileController')}}" target="_blank">Ajaa</a></span></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -218,7 +186,8 @@
                             <ul class="col-md-8 list-unstyled ">
                                 <!-- PLAYER -->
                                 <li class="pp-player scplayer">
-                                    <iframe width="100%" height="100%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/175199197&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false">
+                                    <iframe width="100%" height="100%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/175199197&amp;
+                                    color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false">
                                     </iframe>
                                 </li>
                                 <!-- LIKE -->
@@ -226,7 +195,7 @@
                                     <ul class="list-inline">
                                         <li><a href=""><i class="fa fa-thumbs-up icon-2x"></i></a></li>
                                         <li><em>50 views <i class="fa fa-eye"></i></em></li>
-                                        <li><em>3 hours ago <i class="fa fa-clock-o"></i></em></li>
+                                        <li><em>{{ $song->timeago}}} <i class="fa fa-clock-o"></i></em></li>
                                     </ul>
                                 </li>
                             </ul>   
@@ -237,7 +206,7 @@
                             <h4 class="upload-desc"> Another hit banger from music producer Chopstix
                             </h4>
                             <p>
-                                Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet consectetur adipiscing elit. Fusce condimentum eleifend enim a feugiatt non libero consectetur adipiscing elit magna. Sed et quam lacus. Condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat.
+                                {{ $song->description }}
                             </p>
                             </div>
                         </section>
@@ -257,14 +226,14 @@
                         <div class="related-upld border-bttm">
                                 <h2 class="text-left">Related Uploads</h2>
                                 <div id="owl-demo">          
-                                  <div class="item"><img src="img/bg1-thumbnail.jpg" alt="Owl Image"></div>
-                                  <div class="item"><img src="img/bg1-thumbnail.jpg" alt="Owl Image"></div>
-                                  <div class="item"><img src="img/bg1-thumbnail.jpg" alt="Owl Image"></div>
-                                  <div class="item"><img src="img/bg1-thumbnail.jpg" alt="Owl Image"></div>
-                                  <div class="item"><img src="img/bg1-thumbnail.jpg" alt="Owl Image"></div>
-                                  <div class="item"><img src="img/bg1-thumbnail.jpg" alt="Owl Image"></div>
-                                  <div class="item"><img src="img/bg1-thumbnail.jpg" alt="Owl Image"></div>
-                                  <div class="item"><img src="img/bg1-thumbnail.jpg" alt="Owl Image"></div>
+                                  <div class="item">{{ HTML::image('img/bg1-thumbnail.jpg', 'album Art') }}</div>
+                                  <div class="item">{{ HTML::image('img/bg1-thumbnail.jpg', 'album Art') }}</div>
+                                  <div class="item">{{ HTML::image('img/bg1-thumbnail.jpg', 'album Art') }}</div>
+                                  <div class="item">{{ HTML::image('img/bg1-thumbnail.jpg', 'album Art') }}</div>
+                                  <div class="item">{{ HTML::image('img/bg1-thumbnail.jpg', 'album Art') }}</div>
+                                  <div class="item">{{ HTML::image('img/bg1-thumbnail.jpg', 'album Art') }}</div>
+                                  <div class="item">{{ HTML::image('img/bg1-thumbnail.jpg', 'album Art') }}</div>
+                                  <div class="item">{{ HTML::image('img/bg1-thumbnail.jpg', 'album Art') }}</div>
                                 </div>
                         </div>
                         <!-- COMMENTS -->
@@ -302,8 +271,9 @@
                             </div><!--/media-->
 
                                 <div class="media border-bttm">
-                                    <a class="pull-left" href="#">
-                                        <img class="media-object" src="img/bg1-thumbnail.jpg" alt="" />
+                                    <a class="pull-left">
+                                        {{ HTML::image('img/bg1-thumbnail.jpg', 'album Art', array('class'=>'media-object')) }}
+                                        
                                     </a>
                                     <div class="media-body">
                                         <h4 class="media-heading">Media heading <span>July 5,2013 / <a href="#">Reply</a></span></h4>

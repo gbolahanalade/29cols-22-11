@@ -1,15 +1,16 @@
-<footer id="main-footer">
-        <div class="container">
-            <div class="row">
+
+    <footer id="footer">
+        <div class="row">
+            <div class="container">
                 <!-- FOOTER LEFT COL-6 -->
-                <div class="col-lg-6">
-                    <p class="floatleft copyright text-muted small">
-                        Copyright &copy; 27Colours 2014. All Rights Reserved
+                <div class="text-center">
+                    <p class="copyright text-muted small">
+                        Copyright &copy; 27Colours 2015. All Rights Reserved
                     </p>
                 </div>
                 <!-- FOOTER RIGHT COL-6 -->
-                <div class="footer-right col-lg-6">
-                    <ul class="floatright list-inline">
+                <!-- <div class="col-lg-6">
+                    <ul class="list-inline pull-right">
                         <li>
                             <a href="#home">Contact</a>
                         </li>
@@ -30,7 +31,8 @@
                             <a href="#">Credits</a>
                         </li>
                     </ul>
-                </div>
+                </div> -->
             </div>
         </div>
     </footer>
+
