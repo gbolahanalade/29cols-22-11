@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://localhost',
+	'url' => 'http://29cols.devworks.mobiliseafrica.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ return array(
 	|
 	*/
 
-	'timezone' => 'UTC',
+	'timezone' => 'Africa/Lagos',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -122,11 +122,12 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Zizaco\Confide\ServiceProvider',
-		 'Artdarek\OAuth\OAuthServiceProvider',
-		 'Intervention\Image\ImageServiceProvider',
-		 'Fbf\LaravelYoutube\LaravelYoutubeServiceProvider',
-		 'Fbf\LaravelComments\LaravelCommentsServiceProvider',
-		 'Cohensive\Embed\EmbedServiceProvider',
+		'Artdarek\OAuth\OAuthServiceProvider',
+		'Intervention\Image\ImageServiceProvider',
+		'Fbf\LaravelYoutube\LaravelYoutubeServiceProvider',
+		'Fbf\LaravelComments\LaravelCommentsServiceProvider',
+		//'Cohensive\Embed\EmbedServiceProvider',
+		'Laracasts\Flash\FlashServiceProvider',
 		
 		
 
@@ -198,11 +199,12 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-		'Confide'    => 'Zizaco\Confide\Facade',
-		'OAuth' => 'Artdarek\OAuth\Facade\OAuth',
-		'Image' => 'Intervention\Image\Facades\Image',
+		'Confide'		  => 'Zizaco\Confide\Facade',
+		'OAuth'			  => 'Artdarek\OAuth\Facade\OAuth',
+		'Image'			  => 'Intervention\Image\Facades\Image',
 		'Youtube'         => 'Fbf\LaravelYoutube\YoutubeFacade',
-		'Embed' => 'Cohensive\Embed\Facades\Embed',
+		//'Embed'			  => 'Cohensive\Embed\Facades\Embed',
+		'Flash'			  => 'Laracasts\Flash\Flash',
 	
 		
 		

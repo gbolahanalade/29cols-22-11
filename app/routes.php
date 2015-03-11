@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('login/facebook/{facebook}', 'OauthController@facebook');
+Route::get('test', 'OauthController@test');
+
+
 Route::model('user','User');
 Route::model('blog','Blog');
 Route::model('song','Song');
