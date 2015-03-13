@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('login/facebook/{facebook}', 'OauthController@facebook');
+Route::get('login/{provider}', 'OauthController@process');
 Route::get('test', 'OauthController@test');
 
 

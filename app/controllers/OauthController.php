@@ -11,87 +11,32 @@ class OauthController extends \BaseController {
 	
 	public function test()
 	{
+		require_once(app_path() . '/Lib/hybridauth/');
 		return View::make('fb.test');
 	}
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
+	public function process($provider)
 	{
-		//
-	}
-
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
-
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
-
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
+		$provider = $provider;
+		try {
+			
+			$config = app_path() . '/Lib/hybridauth/config.php';
+			require_once(app_path() . '/Lib/hybridauth/Hybrid/auth.php');
+		
+			$hybridauth = new Hybrid_Auth($config);
+			
+			$adapter = $hybridauth->authenticate($provider);
+			
+			$user_profile = $adapter->getUserProfile();
+			dd($user_profile);
+		}
+		catch( \Exception $e )
+		{
+			Flash::error("Authentication failed");
+			return View::make('fb.test');
+		}
+		
+		return $provider;
 	}
 
 
