@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('login/{provider}', 'OauthController@process');
+Route::get('login/{provider}/{auth?}', 'OauthController@process');
 Route::get('test', 'OauthController@test');
 
 

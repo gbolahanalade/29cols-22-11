@@ -191,11 +191,19 @@
 
                 <div class="alert alert-info"  role="alert">{{{ Session::get('notice') }}}</div>
 
-            @endif   
+            @endif
+
+
 
             <button type="submit" class="btn btn-primary rounded btn-md">
 
             {{{ Lang::get('confide::confide.login.submit') }}}</button>
+
+            <p style="margin-top:20px;">
+                   <a href="/login/facebook" class="btn btn-primary">Login with Facebook</a>
+                   <a href="/login/twitter" class="btn btn-primary">Login with Twitter</a>
+            </p>
+
 
     </form>
 

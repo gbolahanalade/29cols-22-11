@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://29cols.devworks.mobiliseafrica.com',
+	'url' => 'http://29cols.app',
 
 	/*
 	|--------------------------------------------------------------------------

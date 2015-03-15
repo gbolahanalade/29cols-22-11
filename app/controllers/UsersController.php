@@ -208,6 +208,12 @@ class UsersController extends Controller
     {
         Confide::logout();
 
+        //Handle social media logout
+        if ( Session::has('social_auth') ):
+            $social_auth = new Hybrid_Auth( Session::get('social_auth') );
+            $social_auth->logoutAllProviders();
+        endif;
+
         return Redirect::to('/')
         ->with('notice', 'You have been logged out');
     }

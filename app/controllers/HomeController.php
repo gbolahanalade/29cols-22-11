@@ -17,7 +17,6 @@ class HomeController extends BaseController {
 
 	public function index()
 	{
-		return View::make('fb.test');
 	
      	$songs = Song::orderBy('id','desc')->paginate(10);
 		  $songs->getFactory()->setViewName('pagination::simple');
