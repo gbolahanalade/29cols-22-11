@@ -84,11 +84,11 @@
 
                                             @if(Auth::check())
                                                 <li>{{ HTML::link('/profile', 'Profile Page')}}</li>
-                                                <li>{{ HTML::linkRoute('logout', 'logout' )}} </li>
+                                                <li>{{ HTML::linkRoute('logout_path', 'logout' )}} </li>
                                             @else
                                                                            
-                                            <li>{{ HTML::linkRoute('register', 'Registration', array('class'=>'hidden-xs hidden-sm'))}}</li>
-                                            <li>{{ HTML::linkRoute('login', 'Sign In' )}}</li>
+                                            <li>{{ HTML::linkRoute('register_path', 'Registration', array('class'=>'hidden-xs hidden-sm'))}}</li>
+                                            <li>{{ HTML::linkRoute('login_path', 'Sign In' )}}</li>
                                             @endif   
                                 @else
                             <li class="btn-group upload-btn">

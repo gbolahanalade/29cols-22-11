@@ -3,6 +3,7 @@
 use App\Repository\UserRepository;
 use Hybrid_Auth;
 use Auth;
+use Illuminate\Support\Facades\Session;
 use Laracasts\Flash\Flash;
 
 define('APP_PATH', app_path());
@@ -46,16 +47,24 @@ class AuthenticateUser
     {
 
         //Do social auth
-        if ($auth == 'auth') return $this->getAuthorizationFirst();
+        try {
 
-        //social auth
-        //dd($this->getSocialUser($provider));
-        $user = $this->userRepository->findByIdentifierOrCreate($this->getSocialUser($provider));
+            if ($auth == 'auth') return $this->getAuthorizationFirst();
 
-        \Auth::login($user, true);
+            //social auth
+            //dd($this->getSocialUser($provider));
+            $u = $this->getSocialUser($provider);
+            $user = $this->userRepository->findByIdentifierOrCreate($u);
 
-        Flash::overlay("You have been logged in successfully");
-        return $listener->userHasLoggedIn($user);
+            \Auth::login($user, true);
+
+
+            Flash::overlay("You have been logged in successfully");
+            return $listener->userHasLoggedIn($user);
+        }catch (Exception $e) {
+            Flash::overlay($e->getMessage());
+            return $listener->userHasLoggedIn($user);
+        }
 
     }
 
@@ -86,6 +95,7 @@ class AuthenticateUser
 
         $oauth = new hybrid_Auth($config);
         $provider = $oauth->authenticate($provider);
+        Session::put('social_auth', $config);
         return  $provider->getUserProfile();
     }
 

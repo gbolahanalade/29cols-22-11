@@ -13,17 +13,11 @@
 
 
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 Route::get('test', function (){
 
-    $t = User::where(['email'=>'segun@mobiliseafrica.com'])->first();
-
-    if ( $t )
-        return 'exists';
-    else
-        return "doesn't exist";
-
-    return dd($t->id);
+    return Session::get('social_auth');
 });
 
 Route::get('login/{provider}/{auth?}', 'OauthController@process');

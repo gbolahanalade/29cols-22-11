@@ -47,7 +47,14 @@ class UserController extends Controller
     public function destroy()
     {
         Auth::logout();
-        Flash::message('You have been logged out');
+
+        //Handle social media logout
+        if ( Session::has('social_auth') ):
+            $social_auth = new Hybrid_Auth( Session::pull('social_auth') );
+            $social_auth->logoutAllProviders();
+        endif;
+
+        Flash::overlay('You have been logged out');
         return Redirect::home();
     }
 

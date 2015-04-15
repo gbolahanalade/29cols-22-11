@@ -16,7 +16,7 @@ class OauthController extends \BaseController {
         $this->authenticateUser = $authenticateUser;
     }
 
-    public function userHasLoggedIn($user)
+    public function userHasLoggedIn($user=null)
     {
         return Redirect::to('/profile');
     }
