@@ -128,7 +128,9 @@ return array(
 		'Fbf\LaravelComments\LaravelCommentsServiceProvider',
 		//'Cohensive\Embed\EmbedServiceProvider',
 		'Laracasts\Flash\FlashServiceProvider',
-		
+        'Laracasts\Commander\CommanderServiceProvider',
+        'Laracasts\Validation\ValidationServiceProvider',
+
 		
 
 		 
@@ -205,7 +207,6 @@ return array(
 		'Youtube'         => 'Fbf\LaravelYoutube\YoutubeFacade',
 		//'Embed'			  => 'Cohensive\Embed\Facades\Embed',
 		'Flash'			  => 'Laracasts\Flash\Flash',
-	
 		
 		
 

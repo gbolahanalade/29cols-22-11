@@ -10,7 +10,7 @@
 </head>
 <body style="padding-top:50px;">
 
-    @include('layouts.partials.nav')
+    @include('partials.nav.register')
     <div class="container">
         @include('flash::message')
 

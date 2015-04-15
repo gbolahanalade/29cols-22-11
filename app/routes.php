@@ -11,8 +11,23 @@
 |
 */
 
+
+use Illuminate\Support\Facades\Redirect;
+
+Route::get('test', function (){
+
+    $t = User::where(['email'=>'segun@mobiliseafrica.com'])->first();
+
+    if ( $t )
+        return 'exists';
+    else
+        return "doesn't exist";
+
+    return dd($t->id);
+});
+
 Route::get('login/{provider}/{auth?}', 'OauthController@process');
-Route::get('test', 'OauthController@test');
+
 
 
 Route::model('user','User');
@@ -20,7 +35,7 @@ Route::model('blog','Blog');
 Route::model('song','Song');
 Route::model('gallery', 'Gallery');
 Route::model('video', 'Video');
-Route::get('/', 'HomeController@index');
+Route::get('/', ['uses'=>'HomeController@index','as'=>'home']);
 
 
 Route::get('/song', 'SongController@index');
@@ -79,8 +94,11 @@ Route::get('/user/show/{id}', 'ProfileController@show');
 Route::get('/profile/notice', ['as'=>'notice', 'uses' => 'ProfileController@notice']);
 Route::get('/profile/edit',  'ProfileController@edit');
 Route::post('/profile/edit', 'ProfileController@doEdit');
+
+
 Route::get('/profile/photo/upload', 'ProfileController@getPhoto');
-Route::post('/profile/upload', 'ProfileController@doGetPhoto');
+//Route::post('/profile/upload', 'ProfileController@doGetPhoto');
+Route::post('/profile/upload', 'ProfileController@postPhoto');
 //Route::get('/profile',['as'=> 'profile.single', 'uses' =>'ProfileController@getSingle']);
 
 
@@ -101,3 +119,17 @@ Route::get('/upload', 'UploadController@index');
 
 Route::get('users/login/fb', ['as' => 'fblogin', 'uses'=> 'HomeController@loginWithFacebook']);
 Route::get('users/login/go', ['as' => 'gologin', 'uses'=> 'HomeController@loginWithGoogle']);
+
+Route::group(
+    ['prefix' => 'user'], function(){
+
+        Route::get('register', ['uses'=>'RegistrationController@create','as'=>'register_path']);
+        Route::post('register', ['uses'=>'RegistrationController@store', 'as'=>'register_post']);
+        Route::get('confirm/{confirm_code?}/{userid?}', 'RegistrationController@confirm');
+        Route::get('login', ['uses'=>'UserController@login', 'as'=>'login_path']);
+        Route::post('login', ['uses'=>'UserController@store', 'as'=>'login_post']);
+        Route::get('logout', ['uses'=>'UserController@destroy', 'as'=>'logout_path']);
+
+        Route::get('login/{provider}/{auth?}', 'OauthController@process');
+    }
+);

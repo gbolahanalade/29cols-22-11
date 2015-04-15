@@ -15,7 +15,7 @@ return array(
 	|
 	*/
 
-	'driver' => 'smtp',
+	'driver' => 'mandrill',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array( 'address' => 'samizares@27colours.com', 'name' => '27cols' ),
+	'from' => array( 'address' => 'contact@shegunbabs.com', 'name' => '27cols' ),
 
 	/*
 	|--------------------------------------------------------------------------

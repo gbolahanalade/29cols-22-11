@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Auth;
 
 
 /**
@@ -218,57 +218,13 @@ class UsersController extends Controller
         ->with('notice', 'You have been logged out');
     }
 
-    public function fblogin()
-        {
-            $facebook = new Facebook(Config::get('facebook'));
-            $params = array(
-          'redirect_uri' => url('users/login/fb/callback'),
-            'scope' => 'email',
-    );
-         return Redirect::away($facebook->getLoginUrl($params));
-
-      }
-
-   public function fbcall()
-        {
-          $code = Input::get('code');
-         if (strlen($code) == 0) return Redirect::to('/')->with('error', 'There was an error communicating with Facebook');
-
-         $facebook = new Facebook(Config::get('facebook'));
-         $uid = $facebook->getUser();
-
-    if ($uid == 0) return Redirect::to('/')->with('message', 'There was an error');
-
-    $me = $facebook->api('/me');
-    //return  Redirect::to('/')->with('error', 'this user'. $me['name']. 'got here!!!');
-    //$pic ='https://graph.facebook.com/'.$me['id'].'/picture?type=large';
-
-    $user = User::whereUid($uid)->first();
-//return  Redirect::to('/')->with('error', 'this user'. $user . ' got here!!!');
-    if (empty($user)) {
-
-        $user = new User();
-        $user->name = $me['name'];
-        $user->email = $me['email'];
-        $user->photo ='https://graph.facebook.com/'.$me['id'].'/picture?type=large';
-        $user->uid = $uid;
-
-        $user->save();
+    public function destroy()
+    {
+        Auth::logout();
+        Flash::message('You have been logged out');
+        return Redirect::home();
     }
 
-    $user->access_token = $facebook->getAccessToken();
-    $user->save();
-
-       if (Confide::user ()){
-
-    return Redirect::to('/')->with('notice', 'Logged in with Facebook');
-    }
-    else{ 
-     return Redirect::to('/')->with('error', 'Cannot create User');
-        }
-    
-    }
-   
 
 
 }

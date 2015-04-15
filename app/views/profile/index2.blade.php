@@ -59,11 +59,12 @@
                             <div class="col-lg-6 col-md-6 padding-right0">
                                 <div class="row padding50">
                                 <div class="col-md-3 col-sm-3 col-xs-5 profile-pic" style="padding-left:10px;">
-                                {{HTML::image(isset($user->profilePhoto->image) ? $user->profilePhoto->image : 'img/user.jpg', 'Profile Image', array('class'=>'img-responsive md-margin-bottom-10'))}}
+                                <!-- Profile Pic -->
+                                        <img src="{{$pic}}" alt="Profile Image" class="img-responsive md-margin-botton-10" />
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-5 btn-socials profile-util padding-left0">
                                 <a class="btn btn-primary btn-block btn-sm" href="{{action('ProfileController@getPhoto')}}"><i class="fa fa-user fa-xs"></i> | Change Picture</a>
-                                <a class="btn btn-primary btn-block btn-sm" href="{{action('ProfileController@edit', $user->id)}}"><i class="fa fa-cog fa-xs"></i> | Edit Profile</a>
+                                <a class="btn btn-primary btn-block btn-sm" href="{{action('ProfileController@edit')}}"><i class="fa fa-cog fa-xs"></i> | Edit Profile</a>
                                 <a href="{{action('SongController@getNew')}}" class="upload btn btn-soundcloud btn-block btn-sm"><i class="fa fa-music fa-xs"></i> | Add Songs</a>
                                 <a href="{{action('VideoController@getNew')}}" class="upload btn btn-youtube btn-block btn-sm"><i class="fa fa-video-camera fa-xs"></i> | Add Videos</a>
                                 <a href="{{action('GalleryController@getNew')}}" class="upload btn btn-facebook btn-block btn-sm"><i class="fa fa-camera fa-xs"></i> | Add Pictures</a>

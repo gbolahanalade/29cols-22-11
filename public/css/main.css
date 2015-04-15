@@ -946,7 +946,6 @@ white-space: nowrap;
 
 
 .alert{
-    padding: 5px;
     margin-bottom: 10px;
     border: 1px solid transparent;
 }
@@ -955,7 +954,7 @@ white-space: nowrap;
 .alert-info {
     color: #D3490E !important;
     background-color: #F7E5C3;
-    border-color: #E8B04A;    
+    border-color: #E8B04A;
 }
 
 

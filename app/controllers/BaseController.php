@@ -19,6 +19,8 @@ protected function me()
 		{
 			$this->layout = View::make($this->layout);
 		}
+
+        View::share('currentUser', Auth::user());
 	}
 
 }

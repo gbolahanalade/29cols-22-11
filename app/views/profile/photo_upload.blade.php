@@ -117,27 +117,24 @@
 
     <div class="row">
     {{Form::open( array('url' =>'/profile/upload', 'files'=> true, 'method'=>'post', 'class'=>'login-page main-content center-block')) }}
-    {{Form::hidden('id', $user->id)}}
         <div class="panel-header">
             <h2>Add Profile Photo</h2>
-        
-             @if (Session::get('errors'))
-
-                <div class="alert alert-error alert-danger"><a name="error">{{{ Session::get('errors') }}}</a>
-                </div>
-                @endif
-
-                @if (Session::get('notices'))
-             <div class="alert"><a name="notice">{{{ Session::get('notices') }}}</a>
-             </div>
-               @endif
+            @include('flash::message')
+            @include('layouts.partials.errors')
         </div>
         <div class="panel-body text-center">
             <div class="fileinput fileinput-new" data-provides="fileinput">
-                <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 150px; height: 150px;">{{ HTML::image('img/user.jpg','Album Art', 
-                array('width'=>'150px', 'height'=>'150px'))}}</div>
-                <div><span class="btn btn-default btn-sm btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span>{{Form::file('image')}}</span>
-                <a href="#" class="btn btn-danger btn-sm fileinput-exists" data-dismiss="fileinput">Remove</a>
+                <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 150px; height: 150px;">
+                    <img src="{{$pic}}" alt="Profile Image" style="width:150px;" />
+
+                </div>
+
+                <div>
+                    <span class="btn btn-default btn-sm btn-file">
+                        <span class="fileinput-new">Select image</span>
+                        <span class="fileinput-exists">Change</span>{{Form::file('image')}}
+                     </span>
+                    <a href="#" class="btn btn-danger btn-sm fileinput-exists" data-dismiss="fileinput">Remove</a>
                 </div>
             </div> 
             <hr>
@@ -155,57 +152,4 @@
 
     <div id="push"></div>
 </div>
-
-<footer id="footer">
-        <div class="row">
-            <div class="container">
-                <!-- FOOTER LEFT COL-6 -->
-                <div class="text-center">
-                    <p class="copyright text-muted small">
-                        Copyright &copy; 27Colours 2014. All Rights Reserved
-                    </p>
-                </div>
-                <!-- FOOTER RIGHT COL-6 -->
-                <!-- <div class="col-lg-6">
-                    <ul class="list-inline pull-right">
-                        <li>
-                            <a href="#home">Contact</a>
-                        </li>
-                        <li class="footer-menu-divider"> | </li>
-                        <li>
-                            <a href="#about">About</a>
-                        </li>
-                        <li class="footer-menu-divider"> | </li>
-                        <li>
-                            <a href="#faqs">FAQS</a>
-                        </li>
-                        <li class="footer-menu-divider"> | </li>
-                        <li>
-                            <a href="#services">Sponsors</a>
-                        </li>
-                        <li class="footer-menu-divider"> | </li>
-                        <li>
-                            <a href="#">Credits</a>
-                        </li>
-                    </ul>
-                </div> -->
-            </div>
-        </div>
-</footer>
-   
-<!-- jQuery Version latest version -->
-    <script src="{{ asset('js/jquery-1.11.0.js') }}"></script>
-    <!-- JS Global Compulsory -->           
-
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('js/jasny-bootstrap.min.js') }}"></script>
-
-<!--[if lt IE 9]>
-    <script src="assets/plugins/respond.js"></script>
-    <script src="assets/plugins/html5shiv.js"></script>
-    <script src="assets/js/plugins/placeholder-IE-fixes.js"></script>
-<![endif]-->
-
-</body>
-
-</html>
+@include('layout.partials.footer')

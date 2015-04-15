@@ -14,8 +14,11 @@
 		"fbf/laravel-comments": "dev-master",
 		"Laracasts/Flash" : "~1.0",
         "hybridauth/hybridauth": "dev-master",
-        "iron-io/iron_mq": "1.4.8"
-		
+        "iron-io/iron_mq": "1.4.8",
+        "laracasts/commander": "~1.0",
+        "laracasts/validation": "~1.2",
+		"guzzlehttp/guzzle": "~5.0@dev"
+
 		
 	},
 	"autoload": {
@@ -28,7 +31,8 @@
 			"app/tests/TestCase.php"
 		],
 		"psr-4" : {
-			"Lib\\" : "app/Lib"
+			"Lib\\" : "app/Lib",
+            "App\\" : "app"
 		}
 		
 	},
