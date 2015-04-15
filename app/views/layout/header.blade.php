@@ -100,8 +100,8 @@
                                 </span><span class="caret"></span>
                                 <i class="fa fa-user fa-fw centered"></i></button>
                                     <ul class="list-unstyled dropdown-menu" role="menu">
-                                        <li>{{ HTML::linkRoute('register', 'Register' )}}</li>
-                                        <li>{{ HTML::linkRoute('login', 'Sign In')}}</li>               
+                                        <li>{{ HTML::linkRoute('register_path', 'Register' )}}</li>
+                                        <li>{{ HTML::linkRoute('login_path', 'Sign In')}}</li>
                                     </ul>
                             </li>
                             @endif
