@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="598961b2-8b61-4559-adef-0e0a234ccadd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layout/header.blade.php" afterPath="$PROJECT_DIR$/app/views/layout/header.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Lib/AuthenticateUser.php" afterPath="$PROJECT_DIR$/app/Lib/AuthenticateUser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repository/UserRepository.php" afterPath="$PROJECT_DIR$/app/Repository/UserRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/storage/logs/laravel.log" afterPath="$PROJECT_DIR$/app/storage/logs/laravel.log" />
     </list>
     <ignored path="29cols.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,15 +62,45 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="header.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layout/header.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8095238" vertical-offset="966" max-vertical-offset="1764">
+            <state vertical-scroll-proportion="-20.695652" vertical-offset="966" max-vertical-offset="1764">
               <caret line="103" column="74" selection-start-line="103" selection-start-column="74" selection-end-line="103" selection-end-column="74" />
               <folding>
                 <marker date="1429067112875" expanded="true" signature="3265:3417" placeholder="..." />
                 <marker date="1429067112875" expanded="true" signature="3301:3416" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OauthController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/OauthController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.608696" vertical-offset="126" max-vertical-offset="1302">
+              <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AuthenticateUser.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Lib/AuthenticateUser.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.608696" vertical-offset="337" max-vertical-offset="1316">
+              <caret line="56" column="10" selection-start-line="56" selection-start-column="10" selection-end-line="56" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserRepository.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Repository/UserRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.41597337" vertical-offset="44" max-vertical-offset="1638">
+              <caret line="24" column="56" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -135,10 +165,10 @@
         <option value="$PROJECT_DIR$/app/controllers/RegistrationController.php" />
         <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/controllers/OauthController.php" />
-        <option value="$PROJECT_DIR$/app/Repository/UserRepository.php" />
-        <option value="$PROJECT_DIR$/app/Lib/AuthenticateUser.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/views/layout/header.blade.php" />
+        <option value="$PROJECT_DIR$/app/Lib/AuthenticateUser.php" />
+        <option value="$PROJECT_DIR$/app/Repository/UserRepository.php" />
       </list>
     </option>
   </component>
@@ -221,46 +251,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="29cols" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="29cols" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="29cols" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="29cols" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -269,7 +259,7 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../29cols2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="home&#9;FILE&#9;file://C:/vhosts/29cols/app/controllers/HomeController.php&#10;rou&#9;FILE&#9;file://C:/vhosts/29cols/app/routes.php&#10;rout&#9;FILE&#9;file://C:/vhosts/29cols/app/routes.php&#10;route&#9;FILE&#9;file://C:/vhosts/29cols/app/routes.php&#10;oauth&#9;FILE&#9;file://C:/vhosts/29cols/app/controllers/OauthController.php&#10;Redi&#9;FILE&#9;file://C:/vhosts/29cols/vendor/laravel/framework/src/Illuminate/Support/Facades/Redirect.php&#10;redirect&#9;null&#9;null&#10;registr&#9;FILE&#9;file://C:/vhosts/29cols/app/controllers/RegistrationController.php&#10;profile&#9;FILE&#9;file://C:/vhosts/29cols/app/models/ProfilePicture.php&#10;user&#9;FILE&#9;file://C:/vhosts/29cols/app/models/User.php&#10;Home&#9;FILE&#9;file://C:/vhosts/29cols/app/controllers/HomeController.php&#10;Profil&#9;FILE&#9;file://C:/vhosts/29cols/app/Repository/ProfilePictureRepository.php&#10;regis&#9;FILE&#9;file://C:/vhosts/29cols/app/controllers/RegistrationController.php&#10;profilePi&#9;FILE&#9;file://C:/vhosts/29cols/app/Repository/ProfilePictureRepository.php&#10;html&#9;FILE&#9;file://C:/vhosts/29cols/vendor/laravel/framework/src/Illuminate/Html/HtmlBuilder.php&#10;migrat&#9;null&#9;null&#10;migra&#9;null&#9;null&#10;login&#9;FILE&#9;file://C:/vhosts/29cols/app/views/user/login.blade.php&#10;users&#9;FILE&#9;file://C:/vhosts/29cols/app/controllers/UsersController.php&#10;link_to_route&#9;null&#9;null&#10;creat&#9;FILE&#9;file://C:/vhosts/29cols/app/views/user/create.blade.php&#10;master&#9;FILE&#9;file://C:/vhosts/29cols/app/views/layouts/master.blade.php&#10;Mai&#9;FILE&#9;file://C:/vhosts/29cols/app/Lib/Mailers/Mailer.php&#10;mas&#9;FILE&#9;file://C:/vhosts/29cols/app/views/layouts/master.blade.php&#10;crea&#9;FILE&#9;file://C:/vhosts/29cols/app/views/user/create.blade.php&#10;start&#9;FILE&#9;file://C:/vhosts/29cols/bootstrap/start.php&#10;env&#9;FILE&#9;file://C:/vhosts/29cols/.env.local.php&#10;servi&#9;FILE&#9;file://C:/vhosts/29cols/app/config/services.php&#10;mail&#9;FILE&#9;file://C:/vhosts/29cols/app/config/mail.php&#10;.e&#9;FILE&#9;file://C:/vhosts/29cols/.env.local.php&#10;main.css&#9;FILE&#9;file://C:/vhosts/29cols/public/css/main.css&#10;form&#9;FILE&#9;file://C:/vhosts/29cols/vendor/laravel/framework/src/Illuminate/Html/FormBuilder.php&#10;Form&#9;FILE&#9;file://C:/vhosts/29cols/vendor/laravel/framework/src/Illuminate/Support/Facades/Form.php&#10;global&#9;FILE&#9;file://C:/vhosts/29cols/app/start/global.php&#10;app&#9;FILE&#9;file://C:/vhosts/29cols/app/config/app.php&#10;com&#9;FILE&#9;file://C:/vhosts/29cols/composer.json&#10;composer&#9;FILE&#9;file://C:/vhosts/29cols/composer.json&#10;comp&#9;FILE&#9;file://C:/vhosts/29cols/app/views/emails/welcome.blade.php" />
+    <property name="SearchEverywhereHistoryKey" value="oauth&#9;FILE&#9;file://C:/vhosts/29cols/app/controllers/OauthController.php&#10;home&#9;FILE&#9;file://C:/vhosts/29cols/app/controllers/HomeController.php&#10;rou&#9;FILE&#9;file://C:/vhosts/29cols/app/routes.php&#10;rout&#9;FILE&#9;file://C:/vhosts/29cols/app/routes.php&#10;route&#9;FILE&#9;file://C:/vhosts/29cols/app/routes.php&#10;Redi&#9;FILE&#9;file://C:/vhosts/29cols/vendor/laravel/framework/src/Illuminate/Support/Facades/Redirect.php&#10;redirect&#9;null&#9;null&#10;registr&#9;FILE&#9;file://C:/vhosts/29cols/app/controllers/RegistrationController.php&#10;profile&#9;FILE&#9;file://C:/vhosts/29cols/app/models/ProfilePicture.php&#10;user&#9;FILE&#9;file://C:/vhosts/29cols/app/models/User.php&#10;Home&#9;FILE&#9;file://C:/vhosts/29cols/app/controllers/HomeController.php&#10;Profil&#9;FILE&#9;file://C:/vhosts/29cols/app/Repository/ProfilePictureRepository.php&#10;regis&#9;FILE&#9;file://C:/vhosts/29cols/app/controllers/RegistrationController.php&#10;profilePi&#9;FILE&#9;file://C:/vhosts/29cols/app/Repository/ProfilePictureRepository.php&#10;html&#9;FILE&#9;file://C:/vhosts/29cols/vendor/laravel/framework/src/Illuminate/Html/HtmlBuilder.php&#10;migrat&#9;null&#9;null&#10;migra&#9;null&#9;null&#10;login&#9;FILE&#9;file://C:/vhosts/29cols/app/views/user/login.blade.php&#10;users&#9;FILE&#9;file://C:/vhosts/29cols/app/controllers/UsersController.php&#10;link_to_route&#9;null&#9;null&#10;creat&#9;FILE&#9;file://C:/vhosts/29cols/app/views/user/create.blade.php&#10;master&#9;FILE&#9;file://C:/vhosts/29cols/app/views/layouts/master.blade.php&#10;Mai&#9;FILE&#9;file://C:/vhosts/29cols/app/Lib/Mailers/Mailer.php&#10;mas&#9;FILE&#9;file://C:/vhosts/29cols/app/views/layouts/master.blade.php&#10;crea&#9;FILE&#9;file://C:/vhosts/29cols/app/views/user/create.blade.php&#10;start&#9;FILE&#9;file://C:/vhosts/29cols/bootstrap/start.php&#10;env&#9;FILE&#9;file://C:/vhosts/29cols/.env.local.php&#10;servi&#9;FILE&#9;file://C:/vhosts/29cols/app/config/services.php&#10;mail&#9;FILE&#9;file://C:/vhosts/29cols/app/config/mail.php&#10;.e&#9;FILE&#9;file://C:/vhosts/29cols/.env.local.php&#10;main.css&#9;FILE&#9;file://C:/vhosts/29cols/public/css/main.css&#10;form&#9;FILE&#9;file://C:/vhosts/29cols/vendor/laravel/framework/src/Illuminate/Html/FormBuilder.php&#10;Form&#9;FILE&#9;file://C:/vhosts/29cols/vendor/laravel/framework/src/Illuminate/Support/Facades/Form.php&#10;global&#9;FILE&#9;file://C:/vhosts/29cols/app/start/global.php&#10;app&#9;FILE&#9;file://C:/vhosts/29cols/app/config/app.php&#10;com&#9;FILE&#9;file://C:/vhosts/29cols/composer.json&#10;composer&#9;FILE&#9;file://C:/vhosts/29cols/composer.json&#10;comp&#9;FILE&#9;file://C:/vhosts/29cols/app/views/emails/welcome.blade.php" />
     <property name="LayoutCode.rearrangeEntriesPHP" value="false" />
     <property name="options.lastSelected" value="editing.templates" />
     <property name="options.splitter.main.proportions" value="0.3" />
@@ -340,7 +330,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1320" height="784" extended-state="7" />
+    <frame x="-8" y="-8" width="1320" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -722,32 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repository/UserRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72212976" vertical-offset="0" max-vertical-offset="1666">
-          <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
-          <folding>
-            <element signature="e#33#69#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/OauthController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18635607" vertical-offset="168" max-vertical-offset="1302">
-          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Lib/AuthenticateUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5108153" vertical-offset="365" max-vertical-offset="1302">
-          <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07011686" vertical-offset="0" max-vertical-offset="599">
@@ -795,12 +759,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layout/header.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8095238" vertical-offset="966" max-vertical-offset="1764">
+        <state vertical-scroll-proportion="-20.695652" vertical-offset="966" max-vertical-offset="1764">
           <caret line="103" column="74" selection-start-line="103" selection-start-column="74" selection-end-line="103" selection-end-column="74" />
           <folding>
             <marker date="1429067112875" expanded="true" signature="3265:3417" placeholder="..." />
             <marker date="1429067112875" expanded="true" signature="3301:3416" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/OauthController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.608696" vertical-offset="126" max-vertical-offset="1302">
+          <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Lib/AuthenticateUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.608696" vertical-offset="337" max-vertical-offset="1316">
+          <caret line="56" column="10" selection-start-line="56" selection-start-column="10" selection-end-line="56" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repository/UserRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41597337" vertical-offset="44" max-vertical-offset="1638">
+          <caret line="24" column="56" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
+          <folding />
         </state>
       </provider>
     </entry>

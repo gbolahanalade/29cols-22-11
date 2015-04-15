@@ -22,6 +22,7 @@ class UserRepository
     public function findByIdentifierOrCreate($userData)
     {
         //@TODO replace spaces in displayName with underscore
+        //@TODO save the social user profile picture too
         //check if user exists
         $s_user = User::where(['email'=>$userData->email,'is_socialuser'=>1])->first();
         if ( $s_user )
