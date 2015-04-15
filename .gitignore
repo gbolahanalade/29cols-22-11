@@ -2,6 +2,9 @@
 /bootstrap/compiled.php
 /vendor
 /public/img
+/public/img/*
+/app/storage
+/app/storage/*
 composer.phar
 composer.lock
 .env.*.php
